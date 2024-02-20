@@ -189,14 +189,12 @@ Header Area
                     <div class="col-auto d-none d-xl-block">
                         <div class="header-button">
                             @auth
-                            <button type="button" class="icon-btn searchBoxToggler"><i
-                                class="far fa-search"></i></button>
+                            <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button>
                             @endauth
                             <a href="#" class="icon-btn sideMenuToggler"><i class="far fa-bars"></i></a>
 
                             @auth
-                            <a href="{{route('searchagent')}}" class="th-btn">Trouver Un agent<i
-                                    class="fa-regular fa-arrow-right ms-2"></i></a>
+                            <a href="#" class="th-btn" id="findAgentButton">Trouver Un agent<i class="fa-regular fa-arrow-right ms-2"></i></a>
                             @endauth
                         </div>
                     </div>
@@ -205,6 +203,30 @@ Header Area
         </div>
     </div>
     <div class="logo-shape"><img src="{{asset('urbanhaul/assets/img/logo-shape.svg')}}" alt=""></div>
+    <!-- Modal pour la sélection du service -->
+<div class="modal fade" id="agentServiceModal" tabindex="-1" aria-labelledby="agentServiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agentServiceModalLabel">Sélectionner le service requis</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="agentServiceForm" action="{{ route('searchagent') }}" method="GET">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="serviceType" class="form-label">Choisissez le type de service :</label>
+                        <select class="form-select" id="serviceType" name="serviceType">
+                            <option value="livreur">Livreur</option>
+                            <option value="transporteur">Transporteur</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Rechercher un agent</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </header>
 <!--==============================
 Hero Area

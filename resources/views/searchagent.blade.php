@@ -25,7 +25,7 @@ Taxi Area
                     </div>
                     <h3 class="taxi-item_title"><a href="taxi-details.html">{{ $agent->name }}</a></h3>
                     <p class="taxi-item_subtitle">{{ $agent->status }}</p>
-                    <a href="{{ $agent->whatsapp_link }}" class="th-btn fw-btn">Contactez cet agent<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('agentdetail')}}" class="th-btn fw-btn">Selectionner<i class="fa-regular fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             @endforeach

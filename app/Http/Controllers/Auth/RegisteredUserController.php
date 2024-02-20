@@ -61,6 +61,11 @@ class RegisteredUserController extends Controller
             $latitude = $data['results'][0]['geometry']['location']['lat'];
             $longitude = $data['results'][0]['geometry']['location']['lng'];
 
+            $assignment = null;
+            if ($request->role === 'agent') {
+                $assignment = $request->input('role_option');
+            }
+
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -68,12 +73,18 @@ class RegisteredUserController extends Controller
                 'role' => $request->role,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
+                'assignment' => $assignment,
             ]);
         } else {
 
             $latitude = 0;
             $longitude = 0;
 
+            $assignment = null;
+            if ($request->role === 'agent') {
+                $assignment = $request->input('role_option');
+            }
+
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -81,6 +92,7 @@ class RegisteredUserController extends Controller
                 'role' => $request->role,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
+                'assignment' => $assignment,
             ]);
         }
 

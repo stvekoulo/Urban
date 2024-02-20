@@ -177,6 +177,12 @@ button svg {
         }
     </script>
 
+    <script>
+        document.getElementById('findAgentButton').addEventListener('click', function() {
+            $('#agentServiceModal').modal('show');
+        });
+    </script>
+
 </body>
 
 </html>

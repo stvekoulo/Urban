@@ -28,7 +28,8 @@ class User extends Authenticatable
         'phone_number',
         'whatsapp_link',
         'national_id',
-        'photo'
+        'photo',
+        'assignment',
     ];
 
     /**
@@ -55,5 +56,5 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserStatus::class);
     }
-    
+
 }

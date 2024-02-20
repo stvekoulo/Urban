@@ -7,7 +7,8 @@ use App\Models\User;
 use App\Models\UserStatus;
 use Illuminate\Support\Facades\DB;
 
-class SearchController extends Controller
+
+class AgentDetailController extends Controller
 {
     public function index(Request $request)
     {
@@ -26,7 +27,6 @@ class SearchController extends Controller
                         ->get();
         }
 
-        return view('searchagent', compact('agents'));
+        return view('agentdetail', compact('agents'));
     }
-
 }
