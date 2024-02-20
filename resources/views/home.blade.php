@@ -4,16 +4,16 @@
         <!--==============================
 About Area
 ==============================-->
-<div class="space" id="about-sec">
+<div class="space" id="about-sec" id="AboutSection">
     <div class="container">
         <div class="row">
             <div class="col-xl-6 mb-5 mb-xl-0">
                 <div class="img-box7 wow fadeInLeft">
                     <div class="img1">
-                        <img src="{{asset('urbanhaul/assets/img/normal/about_1_1.jpg')}}" alt="About">
+                        <img src="{{asset('urbanhaul/assets/img/transport1.jpg')}}" alt="About">
                     </div>
                     <div class="img2">
-                        <img src="{{asset('urbanhaul/assets/img/normal/about_1_2.jpg')}}" alt="About">
+                        {{-- <img src="{{asset('urbanhaul/assets/img/transport2.jpg')}}" alt="About"> --}}
                     </div>
                     <div class="journey-box">
                         <h3 class="journey-title">Mis en Place </h3>
@@ -30,7 +30,7 @@ About Area
                     <p class="mb-30">Notre plateforme connecte les clients à une communauté de chauffeurs qualifiés, prêts à vous conduire où vous le souhaitez, quand vous le souhaitez. Avec notre système de géolocalisation avancé, vous pouvez facilement trouver les chauffeurs disponibles à proximité, garantissant ainsi des temps d'attente minimes et des trajets rapides.</p>
                     <div class="journey-wrap style2">
                         <div class="journey-image">
-                            <img src="{{asset('urbanhaul/assets/img/normal/map.jpg')}}" alt="">
+                            <img src="{{asset('urbanhaul/assets/img/transport3.jpg')}}" alt="About">
                         </div>
                         <div class="checklist">
                             <ul>
@@ -48,7 +48,7 @@ About Area
 <!--==============================
 Service Area
 ==============================-->
-<section class="ser-area bg-smoke overflow-hidden space">
+<section class="ser-area bg-smoke overflow-hidden space" id="ServiceSection">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 col-xl-6">
@@ -72,9 +72,9 @@ Service Area
             data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1">
 
             <div class="col-md-6 col-lg-4 col-xl-3  ">
-                <div class="service-item wow fadeInUp" data-bg-src="{{asset('urbanhaul/assets/img/service/service_shape_1.jpg')}}')}}">
+                <div class="service-item wow fadeInUp" data-bg-src="{{asset('urbanhaul/assets/img/transport4.jpg')}}')}}">
                     <div class="service-item_img">
-                        <img src="{{asset('urbanhaul/assets/img/service/service-6-1.jpg')}}" alt="service image">
+                        <img src="{{asset('urbanhaul/assets/img/transport14.jpg')}}" alt="service image">
                     </div>
                     <div class="service-item_content">
                         <h3 class="service-item_title"><a href="service-details.html">Rechercher un agent </a></h3>
@@ -86,7 +86,7 @@ Service Area
             <div class="col-md-6 col-lg-4 col-xl-3  ">
                 <div class="service-item wow fadeInUp" data-bg-src="{{asset('urbanhaul/assets/img/service/service_shape_1.jpg')}}')}}">
                     <div class="service-item_img">
-                        <img src="{{asset('urbanhaul/assets/img/service/service-6-2.jpg')}}" alt="service image">
+                        <img src="{{asset('urbanhaul/assets/img/transport6.jpg')}}" alt="service image">
                     </div>
                     <div class="service-item_content">
                         <h3 class="service-item_title"><a href="service-details.html">Transferez un colis</a></h3>
@@ -96,9 +96,9 @@ Service Area
             </div>
 
             <div class="col-md-6 col-lg-4 col-xl-3  ">
-                <div class="service-item wow fadeInUp" data-bg-src="{{asset('urbanhaul/assets/img/service/service_shape_1.jpg')}}">
+                <div class="service-item wow fadeInUp" data-bg-src="{{asset('urbanhaul/assets/img/transport10.jpg')}}">
                     <div class="service-item_img">
-                        <img src="{{asset('urbanhaul/assets/img/service/service-6-3.jpg')}}" alt="service image">
+                        <img src="{{asset('urbanhaul/assets/img/transport19.jpg')}}" alt="service image">
                     </div>
                     <div class="service-item_content">
                         <h3 class="service-item_title"><a href="service-details.html">Devenez un Agent</a></h3>
@@ -110,12 +110,12 @@ Service Area
         </div>
     </div>
     <div class="shape-mockup d-none d-xxl-block" data-top="0%" data-right="-0.5%"><img
-            src="{{asset('urbanhaul/assets/img/normal/service_shape_1.png')}}" alt="shapes"></div>
+            src="{{asset('urbanhaul/assets/img/transport9.png')}}" alt="shapes"></div>
 </section>
 <!--==============================
 Team Area
 ==============================-->
-<section class="space">
+<section class="space" id="MembersSection">
     <div class="container">
         <div class="title-area text-center">
             <span class="sub-title">Membres de l'équipe<span class="double-line"></span></span>
@@ -126,7 +126,7 @@ Team Area
             <div class="col-md-6 col-lg-4">
                 <div class="team-item wow fadeInUp">
                     <div class="team-img">
-                        <img src="{{asset('urbanhaul/assets/img/team/team_1_1.jpg')}}" alt="Team">
+                        <img style="height: 250px;" src="{{asset('urbanhaul/assets/img/profile1.jpg')}}" alt="Team">
                     </div>
                     <div class="team-item_content">
                         <h3 class="team-item_title">Sophia Isabella</h3>
@@ -143,7 +143,7 @@ Team Area
             <div class="col-md-6 col-lg-4">
                 <div class="team-item wow fadeInUp">
                     <div class="team-img">
-                        <img src="{{asset('urbanhaul/assets/img/team/team_1_2.jpg')}}" alt="Team">
+                        <img style="height: 250px;" src="{{asset('urbanhaul/assets/img/profile5.jpg')}}" alt="Team">
                     </div>
                     <div class="team-item_content">
                         <h3 class="team-item_title">Emma Margaret</h3>
@@ -160,7 +160,7 @@ Team Area
             <div class="col-md-6 col-lg-4">
                 <div class="team-item wow fadeInUp">
                     <div class="team-img">
-                        <img src="{{asset('urbanhaul/assets/img/team/team_1_3.jpg')}}" alt="Team">
+                        <img style="height: 250px;" src="{{asset('urbanhaul/assets/img/profile3.jpg')}}" alt="Team">
                     </div>
                     <div class="team-item_content">
                         <h3 class="team-item_title">Jacob Michael</h3>
@@ -177,7 +177,7 @@ Team Area
             <div class="col-md-6 col-lg-4">
                 <div class="team-item wow fadeInUp">
                     <div class="team-img">
-                        <img src="{{asset('urbanhaul/assets/img/team/team_1_4.jpg')}}" alt="Team">
+                        <img style="height: 250px;" src="{{asset('urbanhaul/assets/img/profile4.jpg')}}" alt="Team">
                     </div>
                     <div class="team-item_content">
                         <h3 class="team-item_title">Mason Robert</h3>
@@ -202,7 +202,7 @@ Taxi Area
 Download Area
 ==============================-->
 
-<section class="download-area3 overflow-hidden space-top" data-bg-src="{{asset('urbanhaul/assets/img/bg/download_bg_3.jpg')}}">
+<section class="download-area3 overflow-hidden space-top" data-bg-src="{{asset('urbanhaul/assets/img/transport8.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-xl-6 text-center text-xl-start wow fadeInLeft">
@@ -223,7 +223,7 @@ Download Area
 <!--==============================
 Feature Area
 ==============================-->
-<div class="feature-area  " data-bg-src="{{asset('urbanhaul/assets/img/bg/counter_bg_2.jpg')}}">
+<div class="feature-area  " data-bg-src="{{asset('urbanhaul/assets/img/transport17.jpg')}}">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-5">
@@ -331,7 +331,61 @@ Testimonial Area
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="testi-item  wow fadeInUp">
+                    <p class="testi-item_text">“Jroactively synthesize schemas before foster like leveraged
+                        expertise user friendly open source schemas.”</p>
+                    <div class="testi-item_wrapper">
+                        <div class="testi-item_profile">
+                            <div class="testi-item_img">
+                                <img src="{{asset('urbanhaul/assets/img/testimonial/testi_3_4.jpg')}}" alt="Avater">
+                            </div>
+                            <div class="media-body">
+                                <h3 class="testi-item_name">Marcos Manuel </h3>
+                                <p class="testi-item_desig">Bank Manager</p>
+                            </div>
+                        </div>
+                        <div class="testi-item_quote"><img src="{{asset('urbanhaul/assets/img/icon/quote_2.svg')}}" alt="quote"></div>
+                    </div>
+                    <div class="testi-item_review">
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="testi-item  wow fadeInUp">
+                    <p class="testi-item_text">“Jroactively synthesize schemas before foster like leveraged
+                        expertise user friendly open source schemas.”</p>
+                    <div class="testi-item_wrapper">
+                        <div class="testi-item_profile">
+                            <div class="testi-item_img">
+                                <img src="{{asset('urbanhaul/assets/img/testimonial/testi_3_4.jpg')}}" alt="Avater">
+                            </div>
+                            <div class="media-body">
+                                <h3 class="testi-item_name">Marcos Manuel </h3>
+                                <p class="testi-item_desig">Bank Manager</p>
+                            </div>
+                        </div>
+                        <div class="testi-item_quote"><img src="{{asset('urbanhaul/assets/img/icon/quote_2.svg')}}" alt="quote"></div>
+                    </div>
+                    <div class="testi-item_review">
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                        <i class="fa-solid fa-star-sharp"></i>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </div>
 </section>
 @endsection

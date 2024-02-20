@@ -15,6 +15,7 @@ Taxi Area
             <h2 class="sec-title text-capitalize">Faites Votre Sélection</h2>
         </div>
         <div class="row">
+
             @foreach ($agents as $agent)
             <div class="col-md-4">
                 <div class="taxi-item style2">

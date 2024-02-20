@@ -25,6 +25,11 @@ class SearchController extends Controller
                         ->select('users.*', 'user_statuses.status')
                         ->get();
         }
+        $agents = User::where('role', 'agent')
+    ->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')
+    ->where('user_statuses.status', 'available') // Filtrer les agents disponibles
+    ->select('users.*', 'user_statuses.status')
+    ->get();
 
         return view('searchagent', compact('agents'));
     }
