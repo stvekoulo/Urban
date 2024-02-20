@@ -20,8 +20,8 @@
                                 <div class="th-social  footer-social">
                                     <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="https://www.behance.net/"><i class="fa-brands fa-behance"></i></a>
+                                    {{-- <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://www.behance.net/"><i class="fa-brands fa-behance"></i></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -31,17 +31,16 @@
                             <h3 class="widget_title">Quick link</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="booking.html">Work Gallery</a></li>
-                                    <li><a href="service.html">Client Feedback</a></li>
-                                    <li><a href="service.html">Our Services</a></li>
-                                    <li><a href="team.html">Our Team</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="/">Acceuil</a></li>
+                                    <li><a href="#AboutSection">A propos</a></li>
+                                    <li><a href="#ContactSection">Contact</a></li>
+                                    {{-- <li><a href="#ServiceSection">Nos services</a></li>
+                                    <li><a href="#MembersSection">Membres</a></li> --}}
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-auto">
+                    {{-- <div class="col-md-6 col-xl-auto">
                         <div class="widget footer-widget">
                             <h3 class="widget_title">Contact Details</h3>
                             <div class="th-widget-about">
@@ -56,8 +55,8 @@
                                     Town DD14, USA</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3">
+                    </div> --}}
+                    {{-- <div class="col-md-6 col-xl-3">
                         <div class="widget footer-widget">
                             <h4 class="widget_title">Newsletter</h4>
                             <div class="newsletter-widget">
@@ -74,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
