@@ -30,13 +30,11 @@
                     <script>
                         alert("{{ session('error') }}");
                     </script>
-                @endif
-
+                 @endif
                 <!-- Start Content-->
                 <div class="container-fluid">
 
                    @include('layouts.partials.agent.page-title', ['subtitle' => 'Dashtrap', 'title' => 'Dashboard'])
-
 
                     <div class="row">
                         <div class="col-md-6 col-xl-3">
@@ -70,20 +68,46 @@
                                 <div class="card-body">
                                     <div class="mb-4">
                                         <span class="badge badge-soft-primary float-end">Jour</span>
-                                        <h3 class="card-title mb-0">solde</h3>
+                                        <h3 class="card-title mb-0">Solde</h3>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
-                                            <h2 class="d-flex align-items-center mb-0">
 
-                                            </h2>
                                         </div>
                                         <div class="col-4 text-end">
-
+                                            <span class="text-muted"><i
+                                                    class="mdi mdi-arrow-down "></i></span>
                                         </div>
                                     </div>
 
+                                    <div class="progress shadow-sm" style="height: 5px;">
+                                        <div class="progress-bar " role="progressbar" style="width: 0;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end card body-->
+                            </div><!-- end card-->
+                        </div> <!-- end col-->
+                        <div class="col-md-6 col-xl-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="mb-4">
+                                        <span class="badge badge-soft-primary float-end">Jour</span>
+                                        <h3 class="card-title mb-0">Nombre de service</h3>
+                                    </div>
+                                    <div class="row d-flex align-items-center mb-4">
+                                        <div class="col-8">
 
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <span class="text-muted"><i
+                                                    class="mdi mdi-arrow-down"></i></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="progress shadow-sm" style="height: 5px;">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 0;"></div>
+                                    </div>
                                 </div>
                                 <!--end card body-->
                             </div><!-- end card-->
@@ -93,46 +117,185 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">Mois</span>
-                                        <h3 class="card-title mb-0">solde</h3>
+                                        <span class="badge badge-soft-primary float-end">Date</span>
+                                        <h3 class="card-title mb-0">Aujoud'hui</h3>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
+                                        <div class="col-8">
 
-
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <span class="text-muted"><i
+                                                    class="mdi mdi-arrow-down"></i></span>
+                                        </div>
                                     </div>
 
-
-                                </div>
-                                <!--end card body-->
-                            </div>
-                            <!--end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-md-6 col-xl-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">Année</span>
-                                        <h3 class="card-title mb-0">solde</h3>
+                                    <div class="progress shadow-sm" style="height: 5px;">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 0;"></div>
                                     </div>
-                                    <div class="row d-flex align-items-center mb-4">
-
-
-                                    </div>
-
-
                                 </div>
                                 <!--end card body-->
                             </div><!-- end card-->
                         </div> <!-- end col-->
                     </div>
-                    <!-- end row-->
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Statistiques et Graphiques</h4>
+                                    <p class="card-subtitle mb-4"></p>
+                                    <div id="morris-bar-example" class=""></div>
+                                </div> <!--end card body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col -->
+
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Rapports et Analyses</h4>
+                                    <p class="card-subtitle mb-4"></p>
+
+                                    <div class="text-center">
+                                        <input data-plugin="knob" data-width="165" data-height="165" data-linecap=round
+                                            data-fgColor="#7a08c2" value="0" data-skin="tron" data-angleOffset="180"
+                                            data-readOnly=true data-thickness=".15" />
+                                        <h5 class="text-muted mt-3"></h5>
+
+                                        <p class="text-muted w-75 mx-auto sp-line-2">Rapports et des analyses pour permettre à l'agent d'évaluer les performances du service, les tendances de livraison</p>
+
+                                        <div class="row mt-3">
+                                            <div class="col-6">
+
+                                            </div>
+                                            <div class="col-6">
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div> <!--end card body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col -->
+
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h4 class="card-title">Montant</h4>
+                                            <p class="card-subtitle mb-4">
+                                                <form action="#" method="post">
+                                                    @csrf
+                                                    <label for="start_date">Date de début :</label>
+                                                    <input type="date" name="start_date" required><br><br>
+
+                                                    <label for="end_date">Date de fin :</label>
+                                                    <input type="date" name="end_date" required><br><br>
+                                                    <button type="submit">Rechercher</button>
+
+                                                </form>
+                                            </p>
+
+                                        </div>
+                                    </div> <!-- end row -->
+
+                                    <div id="sparkline1" class="mt-3"></div>
+                                </div>
+                                <!--end card body-->
+                            </div>
+                            <!--end card-->
+
+                        </div><!-- end col -->
+                    </div>
+                    <!--end row-->
+
+                    <div class="row">
+
+                        <!--end col-->
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <h4 class="card-title">Services</h4>
+                                    <p class="card-subtitle mb-4 font-size-13"><h2>Services en Cours</h2>
+                                    </p>
+
+                                    <div class="table-responsive">
+
+                                            <div class="container">
+
+                                                <table class="table table-centered table-striped table-nowrap mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Nom de l'expéditeur</th>
+                                                            <th>Adresse de livraison</th>
+                                                            <th>Type de service</th>
+                                                            <th>État du service</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{-- Utilisez une boucle pour itérer sur les services en cours --}}
+
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <!-- Ajoutez ici des boutons/actions supplémentaires selon vos besoins -->
+                                                                    <!-- Vous pouvez ajouter un bouton pour mettre à jour l'état du service, par exemple -->
+                                                                    <form action="" method="POST">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                                                    </form><br>
+
+                                                                    <!-- Vous pouvez également ajouter un bouton pour marquer le service comme terminé -->
+                                                                    <form action="" method="POST">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <button type="submit" class="btn btn-success">Terminer</button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+
+                                                        {{-- Fin de la boucle --}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                    </div>
+
+                                </div>
+                                <!--end card body-->
+
+                            </div>
+                            <!--end card-->
+                        </div>
+                        <!--end col-->
+
+                    </div>
+                    <!--end row-->
 
                 </div> <!-- container -->
 
             </div> <!-- content -->
 
-            @include('layouts.partials.agent.footer')
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                        </>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
 
         </div>
 
@@ -141,7 +304,6 @@
         <!-- ============================================================== -->
 
     </div>
-    <!-- END wrapper -->
 
     @include('layouts.partials.agent.footer-scripts')
 
