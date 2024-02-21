@@ -26,6 +26,13 @@
 
             <div class="px-3">
 
+                @if(session('error'))
+                    <script>
+                        // Afficher une alerte modale avec le message d'erreur
+                        alert("{{ session('error') }}");
+                    </script>
+                @endif
+
                 <!-- Start Content-->
                 <div class="container-fluid">
 
@@ -77,7 +84,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                                 <!--end card body-->
                             </div><!-- end card-->
@@ -91,11 +98,11 @@
                                         <h3 class="card-title mb-0">solde</h3>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
-                                        
-                                        
+
+
                                     </div>
 
-                                    
+
                                 </div>
                                 <!--end card body-->
                             </div>
@@ -110,11 +117,11 @@
                                         <h3 class="card-title mb-0">solde</h3>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
-                                        
-                                        
+
+
                                     </div>
 
-                                    
+
                                 </div>
                                 <!--end card body-->
                             </div><!-- end card-->

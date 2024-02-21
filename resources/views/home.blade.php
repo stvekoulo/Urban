@@ -5,6 +5,11 @@
 About Area
 ==============================-->
 <div class="space" id="about-sec" id="AboutSection">
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-xl-6 mb-5 mb-xl-0">
