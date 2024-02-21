@@ -192,7 +192,6 @@ Header Area
                             <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button>
                             @endauth
                             <a href="#" class="icon-btn sideMenuToggler"><i class="far fa-bars"></i></a>
-
                             @auth
                             <a href="#" class="th-btn" id="findAgentButton">Trouver Un agent<i class="fa-regular fa-arrow-right ms-2"></i></a>
                             @endauth
