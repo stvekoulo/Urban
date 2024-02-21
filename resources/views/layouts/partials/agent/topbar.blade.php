@@ -27,12 +27,18 @@
         <ul class="topbar-menu d-flex align-items-center gap-4">
 
             @if(Request::is('agent/home'))
-            <li class="d-none d-md-inline-block">
-                <form id="toggleStatusForm" action="{{ route('status.toggle') }}" method="POST">
-                    @csrf
-                    <button type="submit" id="changeStatusBtn" class="btn btn-primary">Changer de statut</button>
-                </form>
-            </li>
+                <li class="d-none d-md-inline-block">
+                    <form id="toggleStatusForm" action="{{ route('status.toggle') }}" method="POST">
+                        @csrf
+                        <button type="submit" id="changeStatusBtn" class="btn btn-primary">
+                            @if(auth()->user()->status && auth()->user()->status->status === 'not_available')
+                                Disponible
+                            @else
+                                Non disponible
+                            @endif
+                        </button>
+                    </form>
+                </li>
             @endif
 
             <li class="d-none d-md-inline-block">
@@ -63,12 +69,6 @@
                     <div class="dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Bienvenue !</h6>
                     </div>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fe-user"></i>
-                        <span>Mon Compte</span>
-                    </a>
 
                     <div class="dropdown-divider"></div>
 

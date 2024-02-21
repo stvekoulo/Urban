@@ -28,7 +28,6 @@
 
                 @if(session('error'))
                     <script>
-                        // Afficher une alerte modale avec le message d'erreur
                         alert("{{ session('error') }}");
                     </script>
                 @endif

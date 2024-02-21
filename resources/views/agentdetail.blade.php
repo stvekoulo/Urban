@@ -25,14 +25,16 @@ Taxi Area
                     <div class="checklist style3">
                         <ul>
                             <li>{{ $selectedAgent->status }}</li>
-                            <li>
+                            <li>Service Proposé:
+                            <span>
                                 @if($selectedAgent->assignment == 'les_deux')
                                     Livreur et Transporteur
                                 @else
                                     {{ $selectedAgent->assignment }}
                                 @endif
+                            </span>
                             </li>
-                            <li>{{ $selectedAgent->phone_number }}</li>
+                            <li>Conctact: {{ $selectedAgent->phone_number }}</li>
                         </ul>
                     </div>
                     <ul class="nav product-tab-style1" id="productTab" role="tablist">
