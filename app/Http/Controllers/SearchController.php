@@ -17,7 +17,7 @@ class SearchController extends Controller
             $agents = User::where('role', 'agent')
                         ->where(function($query) use ($serviceType) {
                             $query->where('assignment', $serviceType)
-                                ->orWhere('assignment', 'les deux');
+                                ->orWhere('assignment', 'les_deux');
                         })
                         ->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')
                         ->where('user_statuses.status', 'available')

@@ -36,7 +36,9 @@ Route::get('aboutus', function () {
 
 Route::get('searchagent', [SearchController::class, 'index'])->name('searchagent');//->middleware('can:viewDashboard,' . ExpediteurPolicy::class);
 
-Route::get('agentdetail', [AgentDetailController::class, 'index'])->name('agentdetail');
+Route::get('agentdetail/{id}', [AgentDetailController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('agentdetail');
 
 Route::get('/agent/home', [AgentController::class, 'home'])->middleware(['auth', 'verified'])->name('agent.home');//->middleware('can:viewDashboard,' . AgentPolicy::class);
 

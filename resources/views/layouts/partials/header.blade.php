@@ -129,7 +129,6 @@ Header Area
             <div class="container">
                 <div class="row justify-content-center justify-content-md-between align-items-center">
                     <div class="col-auto">
-                        <p class="header-notice">Bienvenue chez UrbanHaul Services de Transport en Ligne</p>
                     </div>
                     <div class="col-auto d-none d-md-block">
                         @if (Route::has('login'))
