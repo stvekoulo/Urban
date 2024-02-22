@@ -160,6 +160,8 @@ button svg {
     <script src="{{asset('urbanhaul/assets/js/nice-select.min.js')}}"></script>
     <!-- Date Time Picker -->
     <script src="{{asset('urbanhaul/assets/js/jquery.datetimepicker.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 
 
@@ -182,6 +184,41 @@ button svg {
             $('#agentServiceModal').modal('show');
         });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sendRequestLinks = document.querySelectorAll('.send-request-btn');
+
+        sendRequestLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const agentId = link.getAttribute('data-agent-id');
+
+                // Envoyer la demande à l'agent avec l'ID agentId
+                sendRequestToAgent(agentId);
+            });
+        });
+
+        function sendRequestToAgent(agentId) {
+            // Effectuer une requête AJAX pour envoyer la demande à l'agent
+            axios.post('/envoyer-demande/' + agentId)
+                .then(response => {
+                    // Vérifiez la réponse et affichez un message de succès ou d'erreur
+                    if (response.data.success) {
+                        alert(response.data.message); // Ou utilisez une autre méthode pour afficher le message
+                    } else {
+                        alert(response.data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    });
+</script>
+
 
 </body>
 

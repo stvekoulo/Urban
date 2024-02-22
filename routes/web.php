@@ -48,6 +48,9 @@ Route::post('/status/toggle', [AgentController::class, 'toggleStatus'])->name('s
 Route::get('/agent/profil', [ProfilAgentController::class, 'edit'])->name('profil.edit');
 Route::post('/agent/profil', [ProfilAgentController::class, 'update'])->name('profil.update');
 
+Route::post('/envoyer-demande/{agentId}', [AgentDetailController::class, 'envoyerDemande'])->name('envoyer.demande');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })

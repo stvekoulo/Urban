@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserStatus;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\JsonResponse;
 
 
 class AgentDetailController extends Controller
@@ -49,4 +51,27 @@ class AgentDetailController extends Controller
             return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }
     }
+
+    public function envoyerDemande(Request $request, $agentId): JsonResponse
+    {
+        // Vérifiez si l'utilisateur est connecté en tant qu'expéditeur
+        if (Auth::check() && Auth::user()->role === 'expediteur') {
+
+            // Récupérer le nom de l'utilisateur connecté
+            $nomUtilisateur = Auth::user()->name;
+
+            // Votre logique pour envoyer la demande à l'agent...
+
+            // Création d'une nouvelle notification pour l'agent avec le nom de l'utilisateur
+            Notification::create([
+                'agent_id' => $agentId,
+                'message' => "Vous avez reçu une nouvelle demande de service de $nomUtilisateur.",
+            ]);
+
+            return response()->json(['success' => true, 'message' => 'Demande envoyée avec succès']);
+
+        } else {
+            return response()->json(['success' => false, 'message' => 'Vous n\'êtes pas autorisé à accéder à cette page.'], 403);
+        }
+}
 }
