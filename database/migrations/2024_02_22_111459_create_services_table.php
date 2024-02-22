@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignId('agent_id')->constrained('users');
+            $table->foreignId('expediteur_id')->constrained('users');
             $table->string('type_service');
             $table->text('description')->nullable();
             $table->decimal('prix', 8, 2);
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -9,7 +9,5 @@ class Notification extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['agent_id', 'message', 'read'];
-
-    // Ajoutez d'autres relations, accesseurs, mutateurs ou méthodes si nécessaire
+    protected $fillable = ['agent_id','user_id', 'message', 'read'];
 }

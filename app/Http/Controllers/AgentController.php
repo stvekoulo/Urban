@@ -55,7 +55,6 @@ class AgentController extends Controller
 
     public function acceptNotification(Request $request)
     {
-        // Validez les données soumises par le formulaire
         $validatedData = $request->validate([
             'notification_id' => 'required|exists:notifications,id',
             'service_type' => 'required|in:transport,livraison',
@@ -63,16 +62,17 @@ class AgentController extends Controller
             'prix' => 'required|numeric',
         ]);
 
-        // Créez un nouvel enregistrement dans la table des services
+        $notification = Notification::findOrFail($validatedData['notification_id']);
+        $expediteur_id = $notification->user_id;
+
         $service = new Service();
-        $service->agent_id = auth()->id(); // Identifiant de l'agent actuel
+        $service->agent_id = auth()->id();
+        $service->expediteur_id = $expediteur_id;
         $service->type_service = $validatedData['service_type'];
         $service->description = $validatedData['description'];
         $service->prix = $validatedData['prix'];
         $service->save();
 
-        // Supprimez la notification une fois qu'elle a été acceptée et traitée
-        $notification = Notification::findOrFail($validatedData['notification_id']);
         $notification->delete();
 
         return redirect()->back()->with('success', 'Notification acceptée avec succès et service enregistré.');

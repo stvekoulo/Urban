@@ -54,18 +54,21 @@ class AgentDetailController extends Controller
 
     public function envoyerDemande(Request $request, $agentId): JsonResponse
     {
-        // Vérifiez si l'utilisateur est connecté en tant qu'expéditeur
         if (Auth::check() && Auth::user()->role === 'expediteur') {
+            $userId = Auth::id();
 
-            // Récupérer le nom de l'utilisateur connecté
-            $nomUtilisateur = Auth::user()->name;
+            $existingRequest = Notification::where('agent_id', $agentId)
+                ->where('user_id', $userId)
+                ->exists();
 
-            // Votre logique pour envoyer la demande à l'agent...
+            if ($existingRequest) {
+                return response()->json(['success' => false, 'message' => 'Vous avez déjà envoyé une demande à cet agent.'], 403);
+            }
 
-            // Création d'une nouvelle notification pour l'agent avec le nom de l'utilisateur
             Notification::create([
                 'agent_id' => $agentId,
-                'message' => "Vous avez reçu une nouvelle demande de service de $nomUtilisateur.",
+                'user_id' => $userId,
+                'message' => 'Vous avez reçu une nouvelle demande de service de la part de l\'utilisateur ' . Auth::user()->name,
             ]);
 
             return response()->json(['success' => true, 'message' => 'Demande envoyée avec succès']);
@@ -73,5 +76,5 @@ class AgentDetailController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Vous n\'êtes pas autorisé à accéder à cette page.'], 403);
         }
-}
+    }
 }

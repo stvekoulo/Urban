@@ -42,7 +42,7 @@ Taxi Area
                             <a class="nav-link th-btn" href="{{ $selectedAgent->whatsapp_link}}">Echangez</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link th-btn active send-request-btn" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true" data-agent-id="{{ $selectedAgent->id }}" data-user-id="{{ Auth::id() }}">Envoyez la demande</a>
+                            <a class="nav-link th-btn active send-request-btn" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true" data-agent-id="{{ $selectedAgent->id }}" >Envoyez la demande</a>
                         </li>
                     </ul>
                 </div>

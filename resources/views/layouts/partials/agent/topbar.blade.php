@@ -176,7 +176,6 @@
 </div>
 
 <script>
-    // Fonction pour afficher/cacher les champs en fonction du type de service sélectionné
     function toggleFields() {
         var serviceType = $('#serviceType').val();
         if (serviceType === 'transport') {
@@ -188,53 +187,48 @@
         }
     }
 
-    // Fonction pour afficher le formulaire modal
     function showAcceptModal(notificationId) {
-        // Vous pouvez utiliser cette fonction pour charger des données spécifiques dans le formulaire modal si nécessaire
-        $('#notificationId').val(notificationId); // Pré-remplissez le champ de l'identifiant de la notification dans le formulaire modal
-        toggleFields(); // Assurez-vous que les champs appropriés sont affichés en fonction du type de service
+
+        $('#notificationId').val(notificationId);
+        toggleFields();
         $('#acceptModal').modal('show');
     }
 
-    // Fonction pour soumettre le formulaire
     function submitAcceptForm() {
-        // Récupérez les valeurs des champs du formulaire
+
         var notificationId = $('#notificationId').val();
         var serviceType = $('#serviceType').val();
         var description = $('#description').val();
         var prix = $('#prix').val();
 
-        // Validation des champs
         if (serviceType.trim() === '' || (serviceType === 'livraison' && description.trim() === '') || prix.trim() === '') {
             alert('Veuillez remplir tous les champs');
             return;
         }
 
-        // Soumission du formulaire via AJAX
         $.ajax({
-            url: '{{ route("accept.notification") }}', // Utilisation de la route nommée pour l'URL
+            url: '{{ route("accept.notification") }}',
             type: 'POST',
             data: {
-                _token: '{{ csrf_token() }}', // Ajout du jeton CSRF pour la protection
+                _token: '{{ csrf_token() }}',
                 notification_id: notificationId,
                 service_type: serviceType,
                 description: description,
                 prix: prix
             },
             success: function(response) {
-                // Réponse après soumission réussie
+
                 console.log(response);
-                // Fermeture du formulaire modal
+
                 $('#acceptModal').modal('hide');
             },
             error: function(xhr, status, error) {
-                // Gestion des erreurs
+
                 console.error(xhr.responseText);
             }
         });
     }
 </script>
-
 
 <script src="{{ asset('js/app.js') }}"></script>
 

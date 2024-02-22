@@ -195,19 +195,18 @@ button svg {
                 event.preventDefault();
 
                 const agentId = link.getAttribute('data-agent-id');
+                const userId = {{ Auth::id() }};
 
-                // Envoyer la demande à l'agent avec l'ID agentId
-                sendRequestToAgent(agentId);
+                sendRequestToAgent(agentId, userId);
             });
         });
 
-        function sendRequestToAgent(agentId) {
-            // Effectuer une requête AJAX pour envoyer la demande à l'agent
-            axios.post('/envoyer-demande/' + agentId)
+        function sendRequestToAgent(agentId, userId) {
+
+            axios.post('/envoyer-demande/' + agentId, { user_id: userId })
                 .then(response => {
-                    // Vérifiez la réponse et affichez un message de succès ou d'erreur
                     if (response.data.success) {
-                        alert(response.data.message); // Ou utilisez une autre méthode pour afficher le message
+                        alert(response.data.message);
                     } else {
                         alert(response.data.message);
                     }
@@ -218,7 +217,6 @@ button svg {
         }
     });
 </script>
-
 
 </body>
 
