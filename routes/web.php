@@ -49,7 +49,8 @@ Route::get('/agent/profil', [ProfilAgentController::class, 'edit'])->name('profi
 Route::post('/agent/profil', [ProfilAgentController::class, 'update'])->name('profil.update');
 
 Route::post('/envoyer-demande/{agentId}', [AgentDetailController::class, 'envoyerDemande'])->name('envoyer.demande');
-
+Route::get('/notifications/clear', [AgentController::class, 'clearNotifications'])->name('notifications.clear');
+Route::post('/accept-notification', [AgentController::class, 'acceptNotification'])->name('accept.notification');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

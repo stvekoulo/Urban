@@ -8,43 +8,75 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Service;
 
 class AgentController extends Controller
 {
     public function home()
-{
-    if (Auth::check() && Auth::user()->role === 'agent') {
+    {
+        if (Auth::check() && Auth::user()->role === 'agent') {
 
-        $user = auth()->user();
-        $status = $user->status ? $user->status->status : 'Non défini';
-        $statusText = '';
+            $user = auth()->user();
+            $status = $user->status ? $user->status->status : 'Non défini';
+            $statusText = '';
 
-        switch ($status) {
-            case 'available':
-                $statusText = 'Disponible';
-                break;
-            case 'not_available':
-                $statusText = 'Non disponible';
-                break;
-            default:
-                $statusText = 'Statut inconnu';
+            switch ($status) {
+                case 'available':
+                    $statusText = 'Disponible';
+                    break;
+                case 'not_available':
+                    $statusText = 'Non disponible';
+                    break;
+                default:
+                    $statusText = 'Statut inconnu';
+            }
+
+            $lastUpdated = $user->status ? $user->status->updated_at->diffForHumans() : 'Non disponible';
+
+            $notifications = Notification::where('agent_id', $user->id)->orderBy('created_at', 'desc')->get();
+
+            return view('agent.home')->with('statusText', $statusText)
+                                    ->with('user', $user)
+                                    ->with('lastUpdated', $lastUpdated)
+                                    ->with('notifications', $notifications);
+        } else {
+
+            return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }
-
-        $lastUpdated = $user->status ? $user->status->updated_at->diffForHumans() : 'Non disponible';
-
-        // Récupérez les notifications pour l'agent connecté
-        $notifications = Notification::where('agent_id', $user->id)->orderBy('created_at', 'desc')->get();
-
-        // Passer les notifications à la vue
-        return view('agent.home')->with('statusText', $statusText)
-                                  ->with('user', $user)
-                                  ->with('lastUpdated', $lastUpdated)
-                                  ->with('notifications', $notifications);
-    } else {
-
-        return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
     }
-}
+
+    public function clearNotifications()
+    {
+        $agentId = auth()->user()->id;
+        Notification::where('agent_id', $agentId)->delete();
+
+        return redirect()->back()->with('success', 'Toutes les notifications ont été effacées avec succès');
+    }
+
+    public function acceptNotification(Request $request)
+    {
+        // Validez les données soumises par le formulaire
+        $validatedData = $request->validate([
+            'notification_id' => 'required|exists:notifications,id',
+            'service_type' => 'required|in:transport,livraison',
+            'description' => 'nullable|required_if:service_type,livraison',
+            'prix' => 'required|numeric',
+        ]);
+
+        // Créez un nouvel enregistrement dans la table des services
+        $service = new Service();
+        $service->agent_id = auth()->id(); // Identifiant de l'agent actuel
+        $service->type_service = $validatedData['service_type'];
+        $service->description = $validatedData['description'];
+        $service->prix = $validatedData['prix'];
+        $service->save();
+
+        // Supprimez la notification une fois qu'elle a été acceptée et traitée
+        $notification = Notification::findOrFail($validatedData['notification_id']);
+        $notification->delete();
+
+        return redirect()->back()->with('success', 'Notification acceptée avec succès et service enregistré.');
+    }
 
     public function status()
     {
