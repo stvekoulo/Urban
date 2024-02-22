@@ -42,6 +42,9 @@ Mobile Menu
                 <li>
                     <a href="{{route('contactus')}}">Contact</a>
                 </li>
+                <li>
+                    <a href="{{route('paiement')}}">Paiement</a>
+                </li>
             </ul>
             @if (Route::has('login'))
                 @auth
@@ -180,6 +183,11 @@ Header Area
                                 <li>
                                     <a href="{{route('contactus')}}">Contact</a>
                                 </li>
+                                @auth
+                                <li>
+                                    <a href="{{route('paiement')}}">Paiements</a>
+                                </li>
+                                @endauth
                             </ul>
                         </nav>
                         <button class="th-menu-toggle  d-inline-block d-lg-none"><i

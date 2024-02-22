@@ -9,6 +9,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AgentDetailController;
+use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\ProfilAgentController;
 
 /*
@@ -51,6 +52,9 @@ Route::post('/agent/profil', [ProfilAgentController::class, 'update'])->name('pr
 Route::post('/envoyer-demande/{agentId}', [AgentDetailController::class, 'envoyerDemande'])->name('envoyer.demande');
 Route::get('/notifications/clear', [AgentController::class, 'clearNotifications'])->name('notifications.clear');
 Route::post('/accept-notification', [AgentController::class, 'acceptNotification'])->name('accept.notification');
+
+Route::get('/paiement', [PaiementController::class, 'index'])->name('paiement');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
