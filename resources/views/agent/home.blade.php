@@ -208,13 +208,14 @@
                                 <input type="date" class="form-control" name="start_date" id="start_date" required>
                             </div>
                 
-                            <label for="end_date" class="col-sm-2 col-form-label">Date de fin:</label>
+                            <label for="end_date" class="col-sm-1 col-form-label">Date de fin:</label>
                             <div class="col-sm-3">
                                 <input type="date" class="form-control" name="end_date" id="end_date" required>
                             </div>
+                            <button type="submit" class="col-sm-2 col-form-label">Point Jounalier</button>&nbsp;&nbsp;
                             <button type="submit" class="col-sm-1 col-form-label">Rechercher</button>
                         </div>
-                            <button type="submit">Point Journalier</button>
+                            
                         </form>
                         
                             
