@@ -83,9 +83,9 @@
                                                     <i class="mdi mdi-check"></i> Accepter
                                                 </button>
 
-                                                <button type="button" class="btn btn-danger btn-sm">
+                                                {{--<button type="button" class="btn btn-danger btn-sm">
                                                     <i class="mdi mdi-close"></i> Refuser
-                                                </button>
+                                                </button>--}}
                                             </div>
                                         </div>
                                     </div>

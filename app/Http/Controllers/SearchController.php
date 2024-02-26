@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\UserStatus;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class SearchController extends Controller
@@ -22,6 +21,8 @@ class SearchController extends Controller
 
             if ($request->has('serviceType')) {
                 $serviceType = $request->input('serviceType');
+
+                session(['serviceType' => $serviceType]);
 
                 $agents = User::where('role', 'agent')
                             ->where(function($query) use ($serviceType) {
