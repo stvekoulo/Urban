@@ -67,33 +67,29 @@
                     </div>
                     <div class="px-1" style="max-height: 300px;" data-simplebar>
                         @forelse($notifications as $notification)
-                            <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card shadow-none mb-1">
-                                <div class="card-body">
-                                    <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="notify-icon bg-primary">
-                                                <i class="mdi mdi-comment-account-outline"></i>
-                                            </div>
+                        <a href="javascript:void(0);" class="dropdown-item p-0 notify-item card shadow-none mb-1">
+                            <div class="card-body">
+                                <span class="float-end noti-close-btn text-muted"><i class="mdi mdi-close"></i></span>
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <div class="notify-icon bg-primary">
+                                            <i class="mdi mdi-comment-account-outline"></i>
                                         </div>
-                                        <div class="flex-grow-1 ms-2">
-                                            <p class="noti-item-subtitle text-muted mb-1" style="white-space: normal;">{{ $notification->message }}</p>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <button type="button" class="btn btn-success btn-sm me-2" onclick="showAcceptModal({{ $notification->id }}, {{ $notification->user_id }})">
-                                                    <i class="mdi mdi-check"></i> Accepter
-                                                </button>
-
-                                                {{--<button type="button" class="btn btn-danger btn-sm">
-                                                    <i class="mdi mdi-close"></i> Refuser
-                                                </button>--}}
-                                            </div>
+                                    </div>
+                                    <div class="flex-grow-1 ms-2">
+                                        <p class="noti-item-subtitle text-muted mb-1" style="white-space: normal;">{{ $notification->message }}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <button type="button" class="btn btn-success btn-sm me-2" onclick="showAcceptModal({{ $notification->id }}, '{{ $notification->service_type }}')">
+                                                <i class="mdi mdi-check"></i> Accepter
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                        @empty
-                            <p class="text-muted font-size-13 fw-normal mt-2">Aucune notification</p>
-                        @endforelse
+                            </div>
+                        </a>
+                    @empty
+                        <p class="text-muted font-size-13 fw-normal mt-2">Aucune notification</p>
+                    @endforelse
                     </div>
                 </div>
             </li>
@@ -149,13 +145,7 @@
             </div>
             <div class="modal-body">
                 <form id="acceptForm">
-                    <div class="mb-3">
-                        <label for="serviceType" class="form-label">Type de service</label>
-                        <select class="form-select" id="serviceType" name="serviceType" onchange="toggleFields()">
-                            <option value="transport">Transport</option>
-                            <option value="livraison">Livraison</option>
-                        </select>
-                    </div>
+                    <input type="hidden" id="notificationId" name="notification_id">
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control" id="description" name="description" style="display: none;"></textarea>
@@ -164,7 +154,6 @@
                         <label for="prix" class="form-label">Prix</label>
                         <input type="text" class="form-control" id="prix" name="prix">
                     </div>
-                    <input type="hidden" id="notificationId" name="notification_id">
                 </form>
             </div>
             <div class="modal-footer">
@@ -176,58 +165,65 @@
 </div>
 
 <script>
-    function toggleFields() {
-        var serviceType = $('#serviceType').val();
-        if (serviceType === 'transport') {
+    $(document).ready(function() {
+        $('#acceptModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var notificationId = button.data('notification-id');
+            $('#notificationId').val(notificationId);
+
+            var serviceType = button.data('service-type');
+            toggleFields(serviceType);
+        });
+    });
+
+    function toggleFields(serviceType) {
+
+        if (serviceType === 'transporteur') {
             $('#description').val('').hide();
             $('#prixField').show();
-        } else if (serviceType === 'livraison') {
+        } else if (serviceType === 'livreur') {
             $('#description').val('').show();
             $('#prixField').show();
         }
     }
 
-    function showAcceptModal(notificationId) {
-
+    function showAcceptModal(notificationId, serviceType) {
         $('#notificationId').val(notificationId);
-        toggleFields();
+        toggleFields(serviceType);
         $('#acceptModal').modal('show');
     }
 
     function submitAcceptForm() {
+    var notificationId = $('#notificationId').val();
+    var serviceType = $('#serviceType').val(); // Récupérer le type de service
+    var description = $('#description').val();
+    var prix = $('#prix').val();
 
-        var notificationId = $('#notificationId').val();
-        var serviceType = $('#serviceType').val();
-        var description = $('#description').val();
-        var prix = $('#prix').val();
-
-        if (serviceType.trim() === '' || (serviceType === 'livraison' && description.trim() === '') || prix.trim() === '') {
-            alert('Veuillez remplir tous les champs');
-            return;
-        }
-
-        $.ajax({
-            url: '{{ route("accept.notification") }}',
-            type: 'POST',
-            data: {
-                _token: '{{ csrf_token() }}',
-                notification_id: notificationId,
-                service_type: serviceType,
-                description: description,
-                prix: prix
-            },
-            success: function(response) {
-
-                console.log(response);
-
-                $('#acceptModal').modal('hide');
-            },
-            error: function(xhr, status, error) {
-
-                console.error(xhr.responseText);
-            }
-        });
+    if ((serviceType === 'livreur' && description.trim() === '') || prix.trim() === '') {
+        alert('Veuillez remplir tous les champs');
+        return;
     }
+
+    $.ajax({
+        url: '{{ route("accept.notification") }}',
+        type: 'POST',
+        data: {
+            _token: '{{ csrf_token() }}',
+            notification_id: notificationId,
+            service_type: serviceType, // Ajouter serviceType ici
+            description: description,
+            prix: prix
+        },
+        success: function(response) {
+            console.log(response);
+            $('#acceptModal').modal('hide');
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
+}
+
 </script>
 
 <script src="{{ asset('js/app.js') }}"></script>

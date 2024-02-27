@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('agent_id');
             $table->unsignedBigInteger('user_id');
             $table->string('message');
+            $table->string('service_type');
             $table->boolean('read')->default(false);
             $table->timestamps();
         });

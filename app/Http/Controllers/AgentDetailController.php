@@ -53,28 +53,31 @@ class AgentDetailController extends Controller
     }
 
     public function envoyerDemande(Request $request, $agentId): JsonResponse
-    {
-        if (Auth::check() && Auth::user()->role === 'expediteur') {
-            $userId = Auth::id();
+{
+    if (Auth::check() && Auth::user()->role === 'expediteur') {
+        $userId = Auth::id();
+        $serviceType = session('serviceType');
 
-            $existingRequest = Notification::where('agent_id', $agentId)
-                ->where('user_id', $userId)
-                ->exists();
+        $existingRequest = Notification::where('agent_id', $agentId)
+            ->where('user_id', $userId)
+            ->exists();
 
-            if ($existingRequest) {
-                return response()->json(['success' => false, 'message' => 'Vous avez déjà envoyé une demande à cet agent.'], 403);
-            }
-
-            Notification::create([
-                'agent_id' => $agentId,
-                'user_id' => $userId,
-                'message' => 'Vous avez reçu une nouvelle demande de service de la part de l\'utilisateur ' . Auth::user()->name,
-            ]);
-
-            return response()->json(['success' => true, 'message' => 'Demande envoyée avec succès']);
-
-        } else {
-            return response()->json(['success' => false, 'message' => 'Vous n\'êtes pas autorisé à accéder à cette page.'], 403);
+        if ($existingRequest) {
+            return response()->json(['success' => false, 'message' => 'Vous avez déjà envoyé une demande à cet agent.'], 403);
         }
+
+        Notification::create([
+            'agent_id' => $agentId,
+            'user_id' => $userId,
+            'service_type' => $serviceType,
+            'message' => 'Vous avez reçu une nouvelle demande de service de la part de l\'utilisateur ' . Auth::user()->name,
+        ]);
+
+        return response()->json(['success' => true, 'message' => 'Demande envoyée avec succès']);
+
+    } else {
+        return response()->json(['success' => false, 'message' => 'Vous n\'êtes pas autorisé à accéder à cette page.'], 403);
     }
+}
+
 }

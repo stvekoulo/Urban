@@ -164,9 +164,9 @@
                                         <input type="date" class="form-control" name="end_date" id="end_date"
                                             required>
                                     </div>
-                                    <button type="submit" class="col-sm-2 col-form-label btn btn-primary rounded-pill">Point
+                                    <button type="submit" class="col-sm-2 col-form-label btn btn-primary">Point
                                         Jounalier</button>&nbsp;&nbsp;
-                                    <button type="submit" class="col-sm-1 col-form-label btn btn-primary rounded-pill">Rechercher</button>
+                                    <button type="submit" class="col-sm-1 col-form-label btn btn-primary">Rechercher</button>
                                 </div>
 
                             </form>

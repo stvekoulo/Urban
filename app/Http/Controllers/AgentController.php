@@ -57,8 +57,8 @@ class AgentController extends Controller
     {
         $validatedData = $request->validate([
             'notification_id' => 'required|exists:notifications,id',
-            'service_type' => 'required|in:transport,livraison',
-            'description' => 'nullable|required_if:service_type,livraison',
+
+            'description' => 'nullable|required_if:service_type,livreur',
             'prix' => 'required|numeric',
         ]);
 
@@ -68,7 +68,7 @@ class AgentController extends Controller
         $service = new Service();
         $service->agent_id = auth()->id();
         $service->expediteur_id = $expediteur_id;
-        $service->type_service = $validatedData['service_type'];
+
         $service->description = $validatedData['description'];
         $service->prix = $validatedData['prix'];
         $service->save();
