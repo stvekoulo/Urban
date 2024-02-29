@@ -41,21 +41,6 @@ class RegisteredUserController extends Controller
             'role' => ['required', Rule::in(['expediteur', 'agent'])],
         ]);
 
-        $ip = $request->ip();
-
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/geocode/json', [
-            'query' => [
-                'key' => 'AIzaSyDBD9JktcIBCSvwKXOUJYlRRDvqvvUA3no',
-                'address' => $ip,
-            ],
-             'verify' => false,
-        ]);
-
-
-        $body = $response->getBody();
-        $data = json_decode($body, true);
-
         if (isset($data['results']) && !empty($data['results'])) {
 
             $latitude = $data['results'][0]['geometry']['location']['lat'];
