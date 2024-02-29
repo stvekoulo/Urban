@@ -10,7 +10,7 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'agent_id', 'expediteur_id', 'type_service', 'description', 'prix'
+        'agent_id', 'expediteur_id', 'description', 'prix'
     ];
 
     public function agent()

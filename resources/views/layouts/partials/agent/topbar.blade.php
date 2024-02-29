@@ -145,7 +145,6 @@
             </div>
             <div class="modal-body">
                 <form id="acceptForm">
-                    <input type="hidden" id="notificationId" name="notification_id">
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control" id="description" name="description" style="display: none;"></textarea>
@@ -195,7 +194,8 @@
 
     function submitAcceptForm() {
     var notificationId = $('#notificationId').val();
-    var serviceType = $('#serviceType').val(); // Récupérer le type de service
+    console.log(notificationId); // Ajouter cette ligne pour vérifier l'ID de la notification récupéré
+    var serviceType = $('#serviceType').val();
     var description = $('#description').val();
     var prix = $('#prix').val();
 
@@ -205,23 +205,24 @@
     }
 
     $.ajax({
-        url: '{{ route("accept.notification") }}',
-        type: 'POST',
-        data: {
-            _token: '{{ csrf_token() }}',
-            notification_id: notificationId,
-            service_type: serviceType, // Ajouter serviceType ici
-            description: description,
-            prix: prix
-        },
-        success: function(response) {
-            console.log(response);
-            $('#acceptModal').modal('hide');
-        },
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
-        }
-    });
+    url: '{{ route("accept.notification") }}',
+    type: 'POST',
+    data: {
+        _token: '{{ csrf_token() }}',
+        notification_id: notificationId,
+        service_type: serviceType,
+        description: description,
+        prix: prix
+    },
+    success: function(response) {
+        console.log(response);
+        $('#acceptModal').modal('hide');
+    },
+    error: function(xhr, status, error) {
+        console.error(xhr.responseText);
+    }
+});
+
 }
 
 </script>
