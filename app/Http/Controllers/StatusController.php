@@ -40,5 +40,4 @@ class StatusController extends Controller
     {
         return !empty($user->phone_number) && !empty($user->whatsapp_link) && !empty($user->national_id) && !empty($user->photo);
     }
-
 }

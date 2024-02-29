@@ -11,10 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $agents = User::where('role', 'agent')
-                    ->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')
-                    ->select('users.*', 'user_statuses.status')
-                    ->get();
+        $agents = User::where('role', 'agent')->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')->select('users.*', 'user_statuses.status')->get();
 
         return view('home', compact('agents'));
     }

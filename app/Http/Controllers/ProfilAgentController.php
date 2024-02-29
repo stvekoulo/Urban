@@ -15,17 +15,21 @@ class ProfilAgentController extends Controller
 
     public function update(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'phone_number' => 'required|regex:/^\+229\d{8}$/',
-            'whatsapp_link' => 'required|regex:/^https:\/\/wa\.link\/[a-zA-Z0-9]{6}$/',
-            'national_id' => 'required|regex:/^\d{11}$/',
-            'photo' => 'nullable|image|max:3072', // Max size in kilobytes (3072 KB = 3 MB)
-        ], [
-            'phone_number.regex' => 'Le numéro de téléphone doit être au format béninois.',
-            'whatsapp_link.regex' => 'Le lien WhatsApp doit être au format wa.link valide.',
-            'national_id.regex' => 'Le numéro d\'identification national doit être au format béninois.',
-            'photo.max' => 'La taille de la photo ne doit pas dépasser 3 Mo.',
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'phone_number' => 'required|regex:/^\+229\d{8}$/',
+                'whatsapp_link' => 'required|regex:/^https:\/\/wa\.link\/[a-zA-Z0-9]{6}$/',
+                'national_id' => 'required|regex:/^\d{11}$/',
+                'photo' => 'nullable|image|max:3072', // Max size in kilobytes (3072 KB = 3 MB)
+            ],
+            [
+                'phone_number.regex' => 'Le numéro de téléphone doit être au format béninois.',
+                'whatsapp_link.regex' => 'Le lien WhatsApp doit être au format wa.link valide.',
+                'national_id.regex' => 'Le numéro d\'identification national doit être au format béninois.',
+                'photo.max' => 'La taille de la photo ne doit pas dépasser 3 Mo.',
+            ],
+        );
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();

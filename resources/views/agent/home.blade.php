@@ -42,6 +42,12 @@
                 <!-- Start Content-->
                 <div class="container-fluid">
 
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     @include('layouts.partials.agent.page-title', [
                         'subtitle' => 'Dashtrap',
                         'title' => 'Dashboard',
@@ -334,7 +340,6 @@
 
                         <body>
                             <form action="#" style="display: flex; align-items: center;">
-
                                 <label for="start_date" style="margin-right: 15px;">Date de début:</label>
                                 <input type="date" class="form-control custom-btn" name="start_date" id="start_date" required style="margin-right: 10px; width: 300px;">
                             
