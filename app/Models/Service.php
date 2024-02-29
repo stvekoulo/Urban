@@ -9,9 +9,7 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'agent_id', 'expediteur_id', 'description', 'prix'
-    ];
+    protected $fillable = ['agent_id', 'expediteur_id', 'type_service', 'description', 'prix'];
 
     public function agent()
     {
@@ -23,4 +21,3 @@ class Service extends Model
         return $this->belongsTo(User::class, 'expediteur_id');
     }
 }
-

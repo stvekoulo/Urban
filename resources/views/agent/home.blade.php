@@ -42,6 +42,12 @@
                 <!-- Start Content-->
                 <div class="container-fluid">
 
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     @include('layouts.partials.agent.page-title', [
                         'subtitle' => 'Dashtrap',
                         'title' => 'Dashboard',
@@ -153,7 +159,7 @@
                         <body>
                             <form action="#">
                                 <div class="form-group row">
-                                    <label for="start_date"  class="col-sm-1 col-form-label">Date de début:</label>
+                                    <label for="start_date" class="col-sm-1 col-form-label">Date de début:</label>
                                     <div class="col-sm-3">
                                         <input type="date" class="form-control" name="start_date" id="start_date"
                                             required>
@@ -166,7 +172,8 @@
                                     </div>
                                     <button type="submit" class="col-sm-2 col-form-label btn btn-primary">Point
                                         Jounalier</button>&nbsp;&nbsp;
-                                    <button type="submit" class="col-sm-1 col-form-label btn btn-primary">Rechercher</button>
+                                    <button type="submit"
+                                        class="col-sm-1 col-form-label btn btn-primary">Rechercher</button>
                                 </div>
 
                             </form>

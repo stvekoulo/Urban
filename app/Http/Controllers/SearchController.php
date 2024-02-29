@@ -16,37 +16,28 @@ class SearchController extends Controller
      * @return \Illuminate\View\View
      */
     public function index(Request $request)
-{
-    if (Auth::check() && Auth::user()->role === 'expediteur') {
+    {
+        if (Auth::check() && Auth::user()->role === 'expediteur') {
+            $serviceType = $request->input('serviceType');
 
-        $serviceType = $request->input('serviceType');
+            if ($serviceType) {
+                session(['serviceType' => $serviceType]);
 
-        if ($serviceType) {
-            session(['serviceType' => $serviceType]);
+                $agents = User::where('role', 'agent')
+                    ->where(function ($query) use ($serviceType) {
+                        $query->where('assignment', $serviceType)->orWhere('assignment', 'les_deux');
+                    })
+                    ->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')
+                    ->where('user_statuses.status', 'available')
+                    ->select('users.*', 'user_statuses.status')
+                    ->get();
+            } else {
+                $agents = User::where('role', 'agent')->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')->where('user_statuses.status', 'available')->select('users.*', 'user_statuses.status')->get();
+            }
 
-            // Recherche d'agents en fonction du type de service sélectionné
-            $agents = User::where('role', 'agent')
-                        ->where(function($query) use ($serviceType) {
-                            $query->where('assignment', $serviceType)
-                                ->orWhere('assignment', 'les_deux');
-                        })
-                        ->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')
-                        ->where('user_statuses.status', 'available')
-                        ->select('users.*', 'user_statuses.status')
-                        ->get();
+            return view('searchagent', compact('agents'));
         } else {
-            // Si aucun type de service n'est sélectionné, recherchez tous les agents disponibles
-            $agents = User::where('role', 'agent')
-                        ->leftJoin('user_statuses', 'users.id', '=', 'user_statuses.user_id')
-                        ->where('user_statuses.status', 'available')
-                        ->select('users.*', 'user_statuses.status')
-                        ->get();
+            return redirect()->route('agent.home')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }
-
-        return view('searchagent', compact('agents'));
-    } else {
-        return redirect()->route('agent.home')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
     }
-}
-
 }
