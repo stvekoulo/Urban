@@ -371,6 +371,12 @@ Header Area
     </header>
 
     <div class="space">
+        @if(session()->has('messageTransaction'))
+            <div class="alert alert-success">
+                {{ session('messageTransaction') }}
+            </div>
+        @endif
+
         <div class="container">
             <div class="tinv-wishlist woocommerce tinv-wishlist-clear">
                 <div class="tinv-header">
@@ -383,6 +389,7 @@ Header Area
                                 <th class="product-name">Nom du Service</th>
                                 <th class="product-price">Prix</th>
                                 <th class="product-agent">Agent</th>
+                                {{-- <th class="product-agent">Payé</th> --}}
                                 <th class="product-action">&nbsp;</th>
                             </tr>
                         </thead>
@@ -398,6 +405,9 @@ Header Area
                                     <td class="product-agent">
                                         {{ $service->notification->agent_id}}
                                     </td>
+                                    {{-- <td class="product-agent">
+                                        {{ $service->paye }}
+                                    </td> --}}
                                     <td class="product-action">
                                         <a href="{{ route('payMyFeda', ['id' => $service->id]) }}"
                                             class="button th-btn" name="pay-now" value="{{ $service->id }}"
