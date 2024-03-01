@@ -186,79 +186,298 @@
                                     </form>
                                 </p>
                                 <br>
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-body">
-        
-                                            <h4 class="card-title">Top 5 Customers</h4>
-                                            <p class="card-subtitle mb-4 font-size-13">Transaction period from 21 July to 25 Aug
-                                            </p>
-        
-                                            <div class="table-responsive">
-                                                <table class="table table-centered table-striped table-nowrap mb-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Customer</th>
-                                                            <th>Phone</th>
-                                                            <th>Email</th>
-                                                            <th>Location</th>
-                                                            <th>Create Date</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="table-user">
-                                                                <img src="assets/images/users/avatar-4.jpg" alt="table-user"
-                                                                    class="mr-2 avatar-xs rounded-circle">
-                                                                <a href="javascript:void(0);"
-                                                                    class="text-body font-weight-semibold">Paul J. Friend</a>
-                                                            </td>
-                                                            <td>
-                                                                937-330-1634
-                                                            </td>
-                                                            <td>
-                                                                pauljfrnd@jourrapide.com
-                                                            </td>
-                                                            <td>
-                                                                New York
-                                                            </td>
-                                                            <td>
-                                                                07/07/2018
-                                                            </td>
-                                                        </tr>
-        
-                                                        <tr>
-                                                            <td class="table-user">
-                                                                <img src="assets/images/users/avatar-3.jpg" alt="table-user"
-                                                                    class="mr-2 avatar-xs rounded-circle">
-                                                                <a href="javascript:void(0);"
-                                                                    class="text-body font-weight-semibold">Bryan J. Luellen</a>
-                                                            </td>
-                                                            <td>
-                                                                215-302-3376
-                                                            </td>
-                                                            <td>
-                                                                bryuellen@dayrep.com
-                                                            </td>
-                                                            <td>
-                                                                New York
-                                                            </td>
-                                                            <td>
-                                                                09/12/2018
-                                                            </td>
-                                                        </tr>
-                                                        
-        
-                                                    </tbody>
-                                                </table>
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="card">
+                                            <div class="card-body">
+            
+                                                <h4 class="card-title">Top 5 Customers</h4>
+                                                <p class="card-subtitle mb-4 font-size-13">Transaction period from 21 July to 25 Aug
+                                                </p>
+            
+                                                <div class="table-responsive">
+                                                    <table class="table table-centered table-striped table-nowrap mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Type de service</th>
+                                                                <th>Montant</th>
+                                                                <th>Etat de service</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    pauljfrnd@jourrapide.com
+                                                                </td>
+                                                                <td>
+                                                                    New York
+                                                                </td>
+                                                                <td>
+                                                                    07/07/2018
+                                                                </td>
+                                                            </tr>
+            
+                                                            <tr>
+                                                                <td>
+                                                                    bryuellen@dayrep.com
+                                                                </td>
+                                                                <td>
+                                                                    New York
+                                                                </td>
+                                                                <td>
+                                                                    09/12/2018
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    collier@jourrapide.com
+                                                                </td>
+                                                                <td>
+                                                                    Canada
+                                                                </td>
+                                                                <td>
+                                                                    06/30/2018
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    thykauper@rhyta.com
+                                                                </td>
+                                                                <td>
+                                                                    Denmark
+                                                                </td>
+                                                                <td>
+                                                                    09/08/2018
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    austin@dayrep.com
+                                                                </td>
+                                                                <td>
+                                                                    Germany
+                                                                </td>
+                                                                <td>
+                                                                    07/15/2018
+                                                                </td>
+                                                            </tr>
+            
+                                                            <tr>
+                                                                <td>
+                                                                    collier@jourrapide.com
+                                                                </td>
+                                                                <td>
+                                                                    Canada
+                                                                </td>
+                                                                <td>
+                                                                    06/30/2018
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    thykauper@rhyta.com
+                                                                </td>
+                                                                <td>
+                                                                    Denmark
+                                                                </td>
+                                                                <td>
+                                                                    09/08/2018
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+            
                                             </div>
-        
+                                            <!--end card body-->
+            
                                         </div>
-                                        <!--end card body-->
-        
-                                    </div>
-                                    <!--end card-->
+                                        <!--end card-->
+                                    </div> <!-- end col -->
+            
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Stock</h4>
+                                                <p class="card-subtitle mb-4">Recent Stock</p>
+            
+                                                <div class="text-center">
+                                                    <input data-plugin="knob" data-width="165" data-height="165" data-linecap=round
+                                                        data-fgColor="#7a08c2" value="95" data-skin="tron" data-angleOffset="180"
+                                                        data-readOnly=true data-thickness=".15" />
+                                                    <h5 class="text-muted mt-3">Total sales made today</h5>
+            
+            
+                                                    <p class="text-muted w-75 mx-auto sp-line-2">Traditional heading
+                                                        elements are
+                                                        designed to work best in the meat of your page content.</p>
+            
+                                                    <div class="row mt-3">
+                                                        <div class="col-6">
+                                                            <p class="text-muted font-15 mb-1 text-truncate">Target</p>
+                                                            <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k</h4>
+            
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="text-muted font-15 mb-1 text-truncate">Last week</p>
+                                                            <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k</h4>
+                                                        </div>
+            
+                                                    </div>
+                                                </div>
+                                            </div> <!--end card body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col -->
+            
+                                    <div class="col-lg-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col">
+                                                        <h4 class="card-title">Account Transactions</h4>
+                                                        <p class="card-subtitle mb-4">Transaction period from 21 July to
+                                                            25 Aug</p>
+                                                        <h3>$7841.12 <span class="badge badge-soft-success float-end">+7.5%</span>
+                                                        </h3>
+                                                    </div>
+                                                </div> <!-- end row -->
+            
+                                                <div id="sparkline1" class="mt-3">
+                                                    <canvas width="191" height="297" style="display: inline-block; width: 191.4px; height: 297px; vertical-align: top;"></canvas>
+                                                </div>
+                                               
+                                            </div>
+                                            
+                                            <!--end card body-->
+                                        </div>
+                                        <!--end card-->
+            
+                                    </div><!-- end col -->
                                 </div>
+                                {{-- <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                
+                                                <h4 class="card-title">Point</h4>
+                                                <p class="card-subtitle mb-4 font-size-13">
+                                                </p>
+            
+                                                <div class="table-responsive">
+                                                    <table class="table table-centered table-striped table-nowrap mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Type de service</th>
+                                                                <th>Montant</th>
+                                                                <th>Etat de service</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="table-user">
+                                                                    <img src="assets/images/users/avatar-4.jpg" alt="table-user"
+                                                                        class="mr-2 avatar-xs rounded-circle">
+                                                                    <a href="javascript:void(0);"
+                                                                        class="text-body font-weight-semibold">Paul J. Friend</a>
+                                                                </td>
+                                                                <td>
+                                                                    937-330-1634
+                                                                </td>
+                                                                <td>
+                                                                    pauljfrnd@jourrapide.com
+                                                                </td>
+                                                                
+                                                            
+                                                            </tr>
+            
+                                                            <tr>
+                                                                <td class="table-user">
+                                                                    <img src="assets/images/users/avatar-3.jpg" alt="table-user"
+                                                                        class="mr-2 avatar-xs rounded-circle">
+                                                                    <a href="javascript:void(0);"
+                                                                        class="text-body font-weight-semibold">Bryan J. Luellen</a>
+                                                                </td>
+                                                                <td>
+                                                                    215-302-3376
+                                                                </td>
+                                                                <td>
+                                                                    bryuellen@dayrep.com
+                                                                </td>
+                                                                
+                                                                
+                                                            </tr>
+                                                            
+            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+            
+                                            </div>
+                                            
+                                            <!--end card body-->
+            
+                                        </div>
+                                    
+                                        <!--end card-->
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Stock</h4>
+                                                <p class="card-subtitle mb-4">Recent Stock</p>
+            
+                                                <div class="text-center">
+                                                    <input data-plugin="knob" data-width="165" data-height="165" data-linecap=round
+                                                        data-fgColor="#7a08c2" value="95" data-skin="tron" data-angleOffset="180"
+                                                        data-readOnly=true data-thickness=".15" />
+                                                    <h5 class="text-muted mt-3">Total sales made today</h5>
+            
+            
+                                                    <p class="text-muted w-75 mx-auto sp-line-2">Traditional heading
+                                                        elements are
+                                                        designed to work best in the meat of your page content.</p>
+            
+                                                    <div class="row mt-3">
+                                                        <div class="col-6">
+                                                            <p class="text-muted font-15 mb-1 text-truncate">Target</p>
+                                                            <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k</h4>
+            
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <p class="text-muted font-15 mb-1 text-truncate">Last week</p>
+                                                            <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k</h4>
+                                                        </div>
+            
+                                                    </div>
+                                                </div>
+                                            </div> <!--end card body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col -->
+            
+                                    <div class="col-lg-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col">
+                                                        <h4 class="card-title">Account Transactions</h4>
+                                                        <p class="card-subtitle mb-4">Transaction period from 21 July to
+                                                            25 Aug</p>
+                                                        <h3>$7841.12 <span class="badge badge-soft-success float-end">+7.5%</span>
+                                                        </h3>
+                                                    </div>
+                                                </div> <!-- end row -->
+            
+                                                <div id="sparkline1" class="mt-3"></div>
+                                            </div>
+                                            <!--end card body-->
+                                        </div>
+                                        <!--end card-->
+            
+                                    </div>
+                                </div> --}}
+
+
+
                                 {{-- <div class="">
                                     <div class="container">
                                         <table class="table table-centered table-striped table-nowrap mb-0">
