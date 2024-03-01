@@ -48,3 +48,52 @@
         displayEndDate.textContent = endDateInput.value;
     }
 </script>
+<script>
+                                                
+    document.addEventListener('DOMContentLoaded', function () {
+        var sparklineData = [5, 8, 9, 12, 8, 10, 7, 9, 11, 13];
+
+    
+        var sparklineOptions = {
+            type: 'line',
+            data: {
+                labels: Array.from({ length: sparklineData.length }, (_, i) => i + 1), // Utiliser des étiquettes numérotées
+                datasets: [{
+                    data: sparklineData,
+                    borderColor: '#00aabb',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#ff0000',
+                    pointBorderColor: '#ff0000',
+                    pointHoverRadius: 4,
+                    pointHoverBackgroundColor: '#00aabb',
+                    pointHoverBorderColor: '#00aabb',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    display: false,
+                },
+                scales: {
+                    xAxes: [{
+                        display: false,
+                    }],
+                    yAxes: [{
+                        display: false,
+                    }],
+                },
+                tooltips: {
+                    enabled: false,
+                },
+            }
+        };
+
+        var ctx = document.getElementById('sparkline1').getContext('2d');
+
+    
+        new Chart(ctx, sparklineOptions);
+    });
+</script>
