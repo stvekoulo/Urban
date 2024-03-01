@@ -24,7 +24,7 @@ class PaiementController extends Controller
         $transaction = new Transaction();
         // dd(10);
         $fedaPay::setApiKey('sk_sandbox_ZzsodjrfZ6k4HtFGtjwrE-_Z');
-        $fedaPay::setEnvironment('sanbox');
+        $fedaPay::setEnvironment('sandbox');
 
         $service = Service::where('id', $id)->get();
         // dd($service);
@@ -37,10 +37,10 @@ class PaiementController extends Controller
             "currency" => ["code" => 952],
             "callback_url" => "http://e-shop.com/payment/callback.php",
             "customer" => [
-                "firstname" => "John",
-                "lastname" => "Doe",
+                // "firstname" => "John",
+                // "lastname" => "Doe",
                 "email" => "john.doe@gmail.com",
-                "phone" => "+22997940850",
+                // "phone" => "+22997940850",
                 // "phone_number" =>  [
                 //     "nuumber" => "+22997940850",
                 //     "country" => "bj",

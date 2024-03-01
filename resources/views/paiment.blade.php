@@ -393,9 +393,9 @@ Header Area
                                     {{ $service->agent->name }}
                                 </td>
                                 <td class="product-action">
-                                    <button class="button th-btn" name="pay-now" value="{{ $service->id }}" title="Payez maintenant">
+                                    <a href="{{ route('payMyFeda', ['id' => $service->id] ) }}" class="button th-btn"  name="pay-now" value="{{ $service->id }}" title="Payez maintenant">
                                         <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt">Payez maintenant</span>
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
