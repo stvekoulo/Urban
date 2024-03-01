@@ -56,7 +56,7 @@
                         href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="mdi mdi-bell font-size-24"></i>
                         <span
-                            class="badge bg-danger rounded-circle noti-icon-badge">{{ $notifications->count() }}</span>
+                            class="badge bg-danger rounded-circle noti-icon-badge">{{ $notifications->where('read', 0)->count() }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
                         <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="px-1" style="max-height: 300px;" data-simplebar>
-                            @forelse($notifications as $notification)
+                            @forelse($notifications->where('read', 0) as $notification)
                                 <a href="javascript:void(0);"
                                     class="dropdown-item p-0 notify-item card shadow-none mb-1">
                                     <div class="card-body">
