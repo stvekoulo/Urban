@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('agent_id')->constrained('users');
             $table->foreignId('expediteur_id')->constrained('users');
             $table->string('type_service');
+            $table->boolean('payer')->default(false);
             $table->text('description')->nullable();
             $table->decimal('prix', 8, 2);
             $table->timestamps();
