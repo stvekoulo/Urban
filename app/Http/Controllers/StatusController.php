@@ -15,6 +15,10 @@ class StatusController extends Controller
     {
         $user = auth()->user();
 
+        if (!$this->profilIsComplete($user)) {
+            return redirect()->route('profil.edit')->with('warning', 'Veuillez compléter vos informations de profil avant de changer votre statut.');
+        }
+
         $request->validate([
             'status' => 'required|in:available,not_available',
         ]);
@@ -31,4 +35,10 @@ class StatusController extends Controller
 
         return redirect()->back()->with('success', 'Statut mis à jour avec succès.');
     }
+
+    private function profilIsComplete($user)
+    {
+        return !empty($user->phone_number) && !empty($user->whatsapp_link) && !empty($user->national_id) && !empty($user->photo);
+    }
+
 }

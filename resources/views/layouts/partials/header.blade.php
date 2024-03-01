@@ -42,6 +42,9 @@ Mobile Menu
                 <li>
                     <a href="{{route('contactus')}}">Contact</a>
                 </li>
+                <li>
+                    <a href="{{route('paiement')}}">Paiement</a>
+                </li>
             </ul>
             @if (Route::has('login'))
                 @auth
@@ -129,7 +132,6 @@ Header Area
             <div class="container">
                 <div class="row justify-content-center justify-content-md-between align-items-center">
                     <div class="col-auto">
-                        <p class="header-notice">Bienvenue chez UrbanHaul Services de Transport en Ligne</p>
                     </div>
                     <div class="col-auto d-none d-md-block">
                         @if (Route::has('login'))
@@ -181,6 +183,11 @@ Header Area
                                 <li>
                                     <a href="{{route('contactus')}}">Contact</a>
                                 </li>
+                                @auth
+                                <li>
+                                    <a href="{{route('paiement')}}">Paiements</a>
+                                </li>
+                                @endauth
                             </ul>
                         </nav>
                         <button class="th-menu-toggle  d-inline-block d-lg-none"><i
@@ -192,7 +199,6 @@ Header Area
                             <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button>
                             @endauth
                             <a href="#" class="icon-btn sideMenuToggler"><i class="far fa-bars"></i></a>
-
                             @auth
                             <a href="#" class="th-btn" id="findAgentButton">Trouver Un agent<i class="fa-regular fa-arrow-right ms-2"></i></a>
                             @endauth
@@ -223,6 +229,7 @@ Header Area
                     </div>
                     <button type="submit" class="btn btn-primary">Rechercher un agent</button>
                 </form>
+
             </div>
         </div>
     </div>

@@ -5,6 +5,11 @@
 About Area
 ==============================-->
 <div class="space" id="about-sec" id="AboutSection">
+    @if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-xl-6 mb-5 mb-xl-0">
@@ -96,7 +101,7 @@ Service Area
             </div>
 
             <div class="col-md-6 col-lg-4 col-xl-3  ">
-                <div class="service-item wow fadeInUp" data-bg-src="{{asset('urbanhaul/assets/img/transport10.jpg')}}">
+                <div class="service-item wow fadeInUp" data-bg-src="{{asset('urbanhaul/assets/img/service/service_shape_1.jpg')}}">
                     <div class="service-item_img">
                         <img src="{{asset('urbanhaul/assets/img/transport19.jpg')}}" alt="service image">
                     </div>
@@ -110,7 +115,7 @@ Service Area
         </div>
     </div>
     <div class="shape-mockup d-none d-xxl-block" data-top="0%" data-right="-0.5%"><img
-            src="{{asset('urbanhaul/assets/img/transport9.png')}}" alt="shapes"></div>
+        src="{{asset('urbanhaul/assets/img/normal/service_shape_1.png')}}" alt="shapes"></div>
 </section>
 <!--==============================
 Team Area

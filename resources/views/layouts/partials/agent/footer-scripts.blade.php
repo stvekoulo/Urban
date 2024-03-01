@@ -28,6 +28,27 @@
     });
 </script>
 
+<script>
+
+    var startDateInput = document.getElementById('start_date');
+    var endDateInput = document.getElementById('end_date');
+    var displayStartDate = document.getElementById('display_start_date');
+     var displayEndDate = document.getElementById('display_end_date');
+
+
+      startDateInput.addEventListener('input', updateDisplayStartDate);
+       endDateInput.addEventListener('input', updateDisplayEndDate);
+
+
+   function updateDisplayStartDate() {
+        displayStartDate.textContent = startDateInput.value;
+     }
+
+
+   function updateDisplayEndDate() {
+              displayEndDate.textContent = endDateInput.value;
+            }
+</script>
 
 
 

@@ -15,7 +15,6 @@ Taxi Area
             <h2 class="sec-title text-capitalize">Faites Votre Sélection</h2>
         </div>
         <div class="row">
-
             @foreach ($agents as $agent)
             <div class="col-md-4">
                 <div class="taxi-item style2">
@@ -24,9 +23,9 @@ Taxi Area
                         <img src="{{ asset('storage/' . $agent->photo) }}" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px;" alt="Photo de l'agent">
                         @endif
                     </div>
-                    <h3 class="taxi-item_title"><a href="taxi-details.html">{{ $agent->name }}</a></h3>
+                    <h3 class="taxi-item_title"><a href="{{ route('agentdetail', ['id' => $agent->id]) }}">{{ $agent->name }}</a></h3>
                     <p class="taxi-item_subtitle">{{ $agent->status }}</p>
-                    <a href="{{route('agentdetail')}}" class="th-btn fw-btn">Selectionner<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                    <a href="{{ route('agentdetail', ['id' => $agent->id]) }}" class="th-btn fw-btn">Selectionner<i class="fa-regular fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             @endforeach

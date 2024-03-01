@@ -9,6 +9,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AgentDetailController;
+use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\ProfilAgentController;
 
 /*
@@ -36,7 +37,9 @@ Route::get('aboutus', function () {
 
 Route::get('searchagent', [SearchController::class, 'index'])->name('searchagent');//->middleware('can:viewDashboard,' . ExpediteurPolicy::class);
 
-Route::get('agentdetail', [AgentDetailController::class, 'index'])->name('agentdetail');
+Route::get('agentdetail/{id}', [AgentDetailController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('agentdetail');
 
 Route::get('/agent/home', [AgentController::class, 'home'])->middleware(['auth', 'verified'])->name('agent.home');//->middleware('can:viewDashboard,' . AgentPolicy::class);
 
@@ -45,6 +48,13 @@ Route::post('/agent/status/update', [StatusController::class, 'update'])->name('
 Route::post('/status/toggle', [AgentController::class, 'toggleStatus'])->name('status.toggle');
 Route::get('/agent/profil', [ProfilAgentController::class, 'edit'])->name('profil.edit');
 Route::post('/agent/profil', [ProfilAgentController::class, 'update'])->name('profil.update');
+
+Route::post('/envoyer-demande/{agentId}', [AgentDetailController::class, 'envoyerDemande'])->name('envoyer.demande');
+Route::get('/notifications/clear', [AgentController::class, 'clearNotifications'])->name('notifications.clear');
+Route::post('/accept-notification', [AgentController::class, 'acceptNotification'])->name('accept.notification');
+
+Route::get('/paiement', [PaiementController::class, 'index'])->name('paiement');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
