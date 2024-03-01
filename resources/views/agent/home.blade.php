@@ -9,6 +9,9 @@
     @include('layouts.partials.agent.head-css')
     @csrf
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body">
@@ -340,11 +343,14 @@
                                                         <h3>$7841.12 <span class="badge badge-soft-success float-end">+7.5%</span>
                                                         </h3>
                                                     </div>
-                                                </div> <!-- end row -->
+                                                </div> 
             
-                                                <div id="sparkline1" class="mt-3">
-                                                    <canvas width="191" height="297" style="display: inline-block; width: 191.4px; height: 297px; vertical-align: top;"></canvas>
+                                                <div id="sparkline1Container">
+                                                    <canvas id="sparkline1"></canvas>
+                                                   
+                                                    
                                                 </div>
+                                                
                                                
                                             </div>
                                             
@@ -659,39 +665,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Expéditeur 1</td>
-                                                    <td>Adresse 1</td>
-                                                    <td>Type 1</td>
-                                                    <td>En cours</td>
-                                                    <td>
-                                                        <form action="" method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button type="submit"
-                                                                class="btn btn-success">Terminer</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Expéditeur 2</td>
-                                                    <td>Adresse 2</td>
-                                                    <td>Type 2</td>
-                                                    <td>En cours</td>
-                                                    <td>
-                                                        <form action="" method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button type="submit"
-                                                                class="btn btn-success">Terminer</button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
+                                                
+                                                   
                                             </tbody>
                                         </table>
+                                        
                                     </div>
                                 </div>
 
