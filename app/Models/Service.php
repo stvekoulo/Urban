@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Notification;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model

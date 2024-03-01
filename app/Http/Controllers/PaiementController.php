@@ -14,12 +14,17 @@ class PaiementController extends Controller
     {
         $expediteur = Auth::user();
 
-        $services = Service::where('expediteur_id', $expediteur->id)->get();
+        $services = Service::with('notification')
+            ->whereHas('notification', function ($query) use ($expediteur) {
+                $query->where('user_id', $expediteur->id);
+            })
+            ->get();
 
-        return view('paiment', compact('services')) ;
+        return view('paiment', compact('services'));
     }
 
-    public function payMyFeda($id) {
+    public function payMyFeda($id)
+    {
         $fedaPay = new FedaPay();
         $transaction = new Transaction();
         // dd(10);
@@ -29,23 +34,21 @@ class PaiementController extends Controller
         $service = Service::where('id', $id)->get();
         // dd($service);
 
-
-
         $achat = $transaction::create([
-            "description" => "Article 2309ART",
-            "amount" => 1000,
-            "currency" => ["code" => 952],
-            "callback_url" => "http://e-shop.com/payment/callback.php",
-            "customer" => [
+            'description' => 'Article 2309ART',
+            'amount' => 1000,
+            'currency' => ['code' => 952],
+            'callback_url' => 'http://e-shop.com/payment/callback.php',
+            'customer' => [
                 // "firstname" => "John",
                 // "lastname" => "Doe",
-                "email" => "john.doe@gmail.com",
+                'email' => 'john.doe@gmail.com',
                 // "phone" => "+22997940850",
                 // "phone_number" =>  [
                 //     "nuumber" => "+22997940850",
                 //     "country" => "bj",
                 // ]
-            ]
+            ],
         ]);
         $token = $achat->generateToken()->token;
 
@@ -59,10 +62,6 @@ class PaiementController extends Controller
          *   "url": "https://process.fedapay.com/SECURED_TOKEN"
          * }
          */
-        ;
-
-
-
         return redirect()->back();
     }
 }

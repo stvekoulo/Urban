@@ -387,29 +387,32 @@ Header Area
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($services as $service)
-                            <tr class="wishlist_item">
-                                <td class="product-name">
-                                    {{ $service->notification->type_service }}
-                                </td>
-                                <td class="product-price">
-                                    CFA {{ $service->prix }}
-                                </td>
-                                <td class="product-agent">
-                                    {{ $service->notification->agent->name }}
-                                </td>
-                                <td class="product-action">
-                                    <a href="{{ route('payMyFeda', ['id' => $service->id] ) }}" class="button th-btn"  name="pay-now" value="{{ $service->id }}" title="Payez maintenant">
-                                        <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt">Payez maintenant</span>
-                                    </a>
-                                </td>
-                            </tr>
+                            @foreach ($services as $service)
+                                <tr class="wishlist_item">
+                                    <td class="product-name">
+                                        {{ $service->notification->service_type }}
+                                    </td>
+                                    <td class="product-price">
+                                        CFA {{ $service->prix }}
+                                    </td>
+                                    <td class="product-agent">
+                                        {{ $service->notification->agent->name }}
+                                    </td>
+                                    <td class="product-action">
+                                        <a href="{{ route('payMyFeda', ['id' => $service->id]) }}"
+                                            class="button th-btn" name="pay-now" value="{{ $service->id }}"
+                                            title="Payez maintenant">
+                                            <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt">Payez
+                                                maintenant</span>
+                                        </a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </form>
 
-                    </table>
+                </table>
                 </form>
             </div>
         </div>
