@@ -54,23 +54,22 @@ class AgentController extends Controller
     {
         $validatedData = $request->validate([
             'notification_id' => 'required|exists:notifications,id',
-            'service_type' => 'required|in:transporteur,livreur',
-            'description' => 'nullable|required_if:service_type,livraison',
+            'description' => 'nullable|required',
             'prix' => 'required|numeric',
         ]);
 
-        $notification = Notification::findOrFail($validatedData['notification_id']);
+        $notificationId = $validatedData['notification_id'];
+
+        $notification = Notification::findOrFail($notificationId);
         $expediteur_id = $notification->user_id;
 
         $service = new Service();
-        $service->agent_id = auth()->id();
-        $service->expediteur_id = $expediteur_id;
-        $service->type_service = $validatedData['service_type'];
+        $service->notification_id = $notificationId;
         $service->description = $validatedData['description'];
         $service->prix = $validatedData['prix'];
         $service->save();
 
-        $notification->delete();
+        $notification->update(['read' => true]);
 
         return redirect()->back()->with('success', 'Notification acceptée avec succès et service enregistré.');
     }

@@ -390,13 +390,13 @@ Header Area
                             @foreach($services as $service)
                             <tr class="wishlist_item">
                                 <td class="product-name">
-                                    {{ $service->type_service }}
+                                    {{ $service->notification->type_service }}
                                 </td>
                                 <td class="product-price">
                                     CFA {{ $service->prix }}
                                 </td>
                                 <td class="product-agent">
-                                    {{ $service->agent->name }}
+                                    {{ $service->notification->agent->name }}
                                 </td>
                                 <td class="product-action">
                                     <a href="{{ route('payMyFeda', ['id' => $service->id] ) }}" class="button th-btn"  name="pay-now" value="{{ $service->id }}" title="Payez maintenant">
@@ -406,6 +406,9 @@ Header Area
                             </tr>
                             @endforeach
                         </tbody>
+                    </table>
+                </form>
+
                     </table>
                 </form>
             </div>

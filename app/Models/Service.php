@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notification;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['agent_id', 'expediteur_id', 'type_service', 'description', 'prix'];
+    protected $fillable = ['notification_id', 'description', 'prix'];
 
     public function agent()
     {
@@ -19,5 +20,9 @@ class Service extends Model
     public function expediteur()
     {
         return $this->belongsTo(User::class, 'expediteur_id');
+    }
+    public function notification()
+    {
+        return $this->belongsTo(Notification::class);
     }
 }
