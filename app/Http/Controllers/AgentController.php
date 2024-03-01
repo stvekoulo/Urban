@@ -15,7 +15,6 @@ class AgentController extends Controller
     public function home()
     {
         if (Auth::check() && Auth::user()->role === 'agent') {
-
             $user = auth()->user();
             $status = $user->status ? $user->status->status : 'Non défini';
             $statusText = '';
@@ -33,14 +32,12 @@ class AgentController extends Controller
 
             $lastUpdated = $user->status ? $user->status->updated_at->diffForHumans() : 'Non disponible';
 
-            $notifications = Notification::where('agent_id', $user->id)->orderBy('created_at', 'desc')->get();
+            $notifications = Notification::where('agent_id', $user->id)
+                ->orderBy('created_at', 'desc')
+                ->get();
 
-            return view('agent.home')->with('statusText', $statusText)
-                                    ->with('user', $user)
-                                    ->with('lastUpdated', $lastUpdated)
-                                    ->with('notifications', $notifications);
+            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications);
         } else {
-
             return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }
     }
@@ -57,32 +54,29 @@ class AgentController extends Controller
     {
         $validatedData = $request->validate([
             'notification_id' => 'required|exists:notifications,id',
-
-            'description' => 'nullable|required_if:service_type,livreur',
+            'description' => 'nullable|required',
             'prix' => 'required|numeric',
         ]);
 
-        $notification = Notification::findOrFail($validatedData['notification_id']);
+        $notificationId = $validatedData['notification_id'];
+
+        $notification = Notification::findOrFail($notificationId);
         $expediteur_id = $notification->user_id;
 
         $service = new Service();
-        $service->agent_id = auth()->id();
-        $service->expediteur_id = $expediteur_id;
-
+        $service->notification_id = $notificationId;
         $service->description = $validatedData['description'];
         $service->prix = $validatedData['prix'];
         $service->save();
 
-        $notification->delete();
+        $notification->update(['read' => true]);
 
         return redirect()->back()->with('success', 'Notification acceptée avec succès et service enregistré.');
     }
 
     public function status()
     {
-
         if (Auth::check() && Auth::user()->role === 'agent') {
-
             $user = auth()->user();
             $status = $user->status ? $user->status->status : 'Non défini';
             $statusText = '';
@@ -100,16 +94,13 @@ class AgentController extends Controller
 
             return view('agent.status')->with('statusText', $statusText)->with('user', $user);
         } else {
-
             return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }
     }
 
     public function toggleStatus(Request $request)
     {
-
         if (Auth::check() && Auth::user()->role === 'agent') {
-
             $user = auth()->user();
 
             if (!$this->profilIsComplete($user)) {
@@ -120,7 +111,6 @@ class AgentController extends Controller
 
             return response()->json(['success' => 'Statut mis à jour avec succès']);
         } else {
-
             return response()->json(['error' => 'Vous n\'êtes pas autorisé à effectuer cette action.'], 403);
         }
     }

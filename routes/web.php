@@ -35,13 +35,15 @@ Route::get('aboutus', function () {
     return view('aboutus');
 })->name('aboutus');
 
-Route::get('searchagent', [SearchController::class, 'index'])->name('searchagent');//->middleware('can:viewDashboard,' . ExpediteurPolicy::class);
+Route::get('searchagent', [SearchController::class, 'index'])->name('searchagent'); //->middleware('can:viewDashboard,' . ExpediteurPolicy::class);
 
 Route::get('agentdetail/{id}', [AgentDetailController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('agentdetail');
 
-Route::get('/agent/home', [AgentController::class, 'home'])->middleware(['auth', 'verified'])->name('agent.home');//->middleware('can:viewDashboard,' . AgentPolicy::class);
+Route::get('/agent/home', [AgentController::class, 'home'])
+    ->middleware(['auth', 'verified'])
+    ->name('agent.home'); //->middleware('can:viewDashboard,' . AgentPolicy::class);
 
 Route::get('/agent/status', [AgentController::class, 'status'])->name('agent.status');
 Route::post('/agent/status/update', [StatusController::class, 'update'])->name('status.update');
@@ -62,11 +64,13 @@ Route::get('/paiement-myfeda/{id}', [PaiementController::class, 'payMyFeda'])->n
 Route::get('/dashboard', function () {
     return view('dashboard');
 })
-->middleware(['auth', 'verified', 'can:viewDashboard,' . AgentPolicy::class])
-->name('dashboard');
+    ->middleware(['auth', 'verified', 'can:viewDashboard,' . AgentPolicy::class])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('can:viewDashboard,' . ExpediteurPolicy::class);
+    Route::get('/home', [HomeController::class, 'index'])
+        ->name('home')
+        ->middleware('can:viewDashboard,' . ExpediteurPolicy::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

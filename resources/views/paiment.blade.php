@@ -8,27 +8,37 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-57x57.png')}}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-60x60.png')}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-72x72.png')}}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-76x76.png')}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('assetassets/img/favicons/apple-icon-114x114.png')}}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-120x120.png')}}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-144x144.png')}}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-152x152.png')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('urbanhaul/assets/img/favicons/apple-icon-180x180.png')}}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{asset('urbanhaul/assets/img/favicons/android-icon-192x192.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('urbanhaul/assets/img/favicons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('urbanhaul/assets/img/favicons/favicon-96x96.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('urbanhaul/assets/img/favicons/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{asset('urbanhaul/assets/img/favicons/manifest.json')}}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76"
+        href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assetassets/img/favicons/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152"
+        href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ asset('urbanhaul/assets/img/favicons/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="{{ asset('urbanhaul/assets/img/favicons/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ asset('urbanhaul/assets/img/favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96"
+        href="{{ asset('urbanhaul/assets/img/favicons/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ asset('urbanhaul/assets/img/favicons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('urbanhaul/assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{asset('urbanhaul/assets/img/favicons/ms-icon-144x144.png')}}">
+    <meta name="msapplication-TileImage" content="{{ asset('urbanhaul/assets/img/favicons/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
-	  Google Fonts
-	============================== -->
+ Google Fonts
+ ============================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -36,333 +46,329 @@
         rel="stylesheet">
 
     <!--==============================
-	    All CSS File
-	============================== -->
+ All CSS File
+ ============================== -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{asset('urbanhaul/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('urbanhaul/assets/css/bootstrap.min.css') }}">
     <!-- Fontawesome Icon -->
-    <link rel="stylesheet" href="{{asset('urbanhaul/assets/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('urbanhaul/assets/css/fontawesome.min.css') }}">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="{{asset('urbanhaul/assets/css/magnific-popup.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('urbanhaul/assets/css/magnific-popup.min.css') }}">
     <!-- Slick Slider -->
-    <link rel="stylesheet" href="{{asset('urbanhaul/assets/css/slick.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('urbanhaul/assets/css/slick.min.css') }}">
     <!-- Slick Slider -->
-    <link rel="stylesheet" href="{{asset('urbanhaul/assets/css/jquery.datetimepicker.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('urbanhaul/assets/css/jquery.datetimepicker.min.css') }}">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="{{asset('urbanhaul/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('urbanhaul/assets/css/style.css') }}">
 
-        <style>
-            button {
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    }
+    <style>
+        button {
+            padding: 0;
+            margin: 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
 
-    button {
-    --primary-color: #111;
-    --hovered-color: #c84747;
-    position: relative;
-    display: flex;
-    font-weight: 600;
-    font-size: 20px;
-    gap: 0.5rem;
-    align-items: center;
-    }
+        button {
+            --primary-color: #111;
+            --hovered-color: #c84747;
+            position: relative;
+            display: flex;
+            font-weight: 600;
+            font-size: 20px;
+            gap: 0.5rem;
+            align-items: center;
+        }
 
-    button p {
-    margin: 0;
-    position: relative;
-    font-size: 20px;
-    color: var(--primary-color);
-    }
+        button p {
+            margin: 0;
+            position: relative;
+            font-size: 20px;
+            color: var(--primary-color);
+        }
 
-    button::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    left: 0;
-    bottom: -7px;
-    background: var(--hovered-color);
-    height: 2px;
-    transition: 0.3s ease-out;
-    }
+        button::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            left: 0;
+            bottom: -7px;
+            background: var(--hovered-color);
+            height: 2px;
+            transition: 0.3s ease-out;
+        }
 
-    button p::before {
-    position: absolute;
-    /*   box-sizing: border-box; */
-    content: "Subscribe";
-    width: 0%;
-    inset: 0;
-    color: var(--hovered-color);
-    overflow: hidden;
-    transition: 0.3s ease-out;
-    }
+        button p::before {
+            position: absolute;
+            /*   box-sizing: border-box; */
+            content: "Subscribe";
+            width: 0%;
+            inset: 0;
+            color: var(--hovered-color);
+            overflow: hidden;
+            transition: 0.3s ease-out;
+        }
 
-    button:hover::after {
-    width: 100%;
-    }
+        button:hover::after {
+            width: 100%;
+        }
 
-    button:hover p::before {
-    width: 100%;
-    }
+        button:hover p::before {
+            width: 100%;
+        }
 
-    button:hover svg {
-    transform: translateX(4px);
-    color: var(--hovered-color);
-    }
+        button:hover svg {
+            transform: translateX(4px);
+            color: var(--hovered-color);
+        }
 
-    button svg {
-    color: var(--primary-color);
-    transition: 0.2s;
-    position: relative;
-    width: 15px;
-    transition-delay: 0.2s;
-    }
-
-        </style>
+        button svg {
+            color: var(--primary-color);
+            transition: 0.2s;
+            position: relative;
+            width: 15px;
+            transition-delay: 0.2s;
+        }
+    </style>
 
 </head>
 
 <body class="">
 
-   <!--==============================
+    <!--==============================
     preloader
   ============================== -->
-  <div class="preloader">
-    <div class="preloader-inner">
-        <div class="loading-window">
-            <div class="car">
-                <div class="strike"></div>
-                <div class="strike strike2"></div>
-                <div class="strike strike3"></div>
-                <div class="strike strike4"></div>
-                <div class="strike strike5"></div>
-                <div class="car-detail spoiler"></div>
-                <div class="car-detail back"></div>
-                <div class="car-detail center"></div>
-                <div class="car-detail center1"></div>
-                <div class="car-detail front"></div>
-                <div class="car-detail wheel"></div>
-                <div class="car-detail wheel wheel2"></div>
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="loading-window">
+                <div class="car">
+                    <div class="strike"></div>
+                    <div class="strike strike2"></div>
+                    <div class="strike strike3"></div>
+                    <div class="strike strike4"></div>
+                    <div class="strike strike5"></div>
+                    <div class="car-detail spoiler"></div>
+                    <div class="car-detail back"></div>
+                    <div class="car-detail center"></div>
+                    <div class="car-detail center1"></div>
+                    <div class="car-detail front"></div>
+                    <div class="car-detail wheel"></div>
+                    <div class="car-detail wheel wheel2"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!--==============================
+    <!--==============================
 Mobile Menu
 ============================== -->
-<div class="th-menu-wrapper">
-    <div class="th-menu-area text-center">
-        <button class="th-menu-toggle "><i class="fal fa-times"></i></button>
-        <div class="mobile-logo">
-            <a href="{{ route('welcome') }}"><img src="{{asset('urbanhaul/assets/img/logo.svg')}}" alt="UrbanHaul"></a>
-        </div>
-        <div class="th-mobile-menu">
-            <ul>
-                <li class="menu-item-has-children">
-                    <a href="{{ route('welcome') }}">Acceuil</a>
-                </li>
-                <li>
-                    <a href="{{route('aboutus')}}">A propos</a>
-                </li>
-                <li>
-                    <a href="{{route('contactus')}}">Contact</a>
-                </li>
-                <li>
-                    <a href="{{route('paiement')}}">Paiement</a>
-                </li>
-            </ul>
-            @if (Route::has('login'))
-                @auth
-                    {{ Auth::user()->name }}
-                    <ul>
-                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
-                    </ul>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                @else
-                    <button>
-                        <a href="{{ route('login') }}">Se connecter</a>
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="4"
-                        >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        ></path>
-                        </svg>
-                    </button>
-                    @if (Route::has('register'))
+    <div class="th-menu-wrapper">
+        <div class="th-menu-area text-center">
+            <button class="th-menu-toggle "><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="{{ route('welcome') }}"><img src="{{ asset('urbanhaul/assets/img/logo.svg') }}"
+                        alt="UrbanHaul"></a>
+            </div>
+            <div class="th-mobile-menu">
+                <ul>
+                    <li class="menu-item-has-children">
+                        <a href="{{ route('welcome') }}">Acceuil</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('aboutus') }}">A propos</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('contactus') }}">Contact</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('paiement') }}">Paiement</a>
+                    </li>
+                </ul>
+                @if (Route::has('login'))
+                    @auth
+                        {{ Auth::user()->name }}
+                        <ul>
+                            <li><a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se
+                                    déconnecter</a></li>
+                        </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @else
                         <button>
-                            <a href="{{ route('register') }}">S'inscrire</a>
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="4"
-                            >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"
-                            ></path>
+                            <a href="{{ route('login') }}">Se connecter</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
                         </button>
-                    @endif
-                @endauth
-            @endif
+                        @if (Route::has('register'))
+                            <button>
+                                <a href="{{ route('register') }}">S'inscrire</a>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                                    </path>
+                                </svg>
+                            </button>
+                        @endif
+                    @endauth
+                @endif
 
+            </div>
         </div>
+
     </div>
 
-</div>
-
-<!--==============================
+    <!--==============================
 Sidemenu
 ============================== -->
-<div class="sidemenu-wrapper d-none d-lg-block  ">
-    <div class="sidemenu-content bg-title">
-        <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-        <div class="widget footer-widget">
-            <h3 class="widget_title">À propos de l'entreprise</h3>
-            <div class="th-widget-about">
-                <p class="footer-text">UrbanHaul vous offre une solution de transport fiable et rapide pour vos déplacements en ville, connectant les passagers à une communauté de chauffeurs qualifiés à proximité.</p>
-                <a href="{{route('contactus')}}" class="th-btn style3"><span class="btn-text">Contactez-nous</span></a>
+    <div class="sidemenu-wrapper d-none d-lg-block  ">
+        <div class="sidemenu-content bg-title">
+            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
+            <div class="widget footer-widget">
+                <h3 class="widget_title">À propos de l'entreprise</h3>
+                <div class="th-widget-about">
+                    <p class="footer-text">UrbanHaul vous offre une solution de transport fiable et rapide pour vos
+                        déplacements en ville, connectant les passagers à une communauté de chauffeurs qualifiés à
+                        proximité.</p>
+                    <a href="{{ route('contactus') }}" class="th-btn style3"><span
+                            class="btn-text">Contactez-nous</span></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="popup-search-box d-none d-lg-block">
-    <button class="searchClose"><i class="fal fa-times"></i></button>
-    <form action="#">
-        <input type="text" placeholder="What are you looking for">
-        <button type="submit"><i class="fal fa-search"></i></button>
-    </form>
-</div>
+    <div class="popup-search-box d-none d-lg-block">
+        <button class="searchClose"><i class="fal fa-times"></i></button>
+        <form action="#">
+            <input type="text" placeholder="What are you looking for">
+            <button type="submit"><i class="fal fa-search"></i></button>
+        </form>
+    </div>
 
-<!--==============================
+    <!--==============================
 Header Area
 ==============================-->
-<header class="th-header header-layout7">
-    <div class="top-area" data-bg-src="{{asset('urbanhaul/assets/img/bg/header_bg_1.png')}}">
-        <div class="header-top">
-            <div class="container">
-                <div class="row justify-content-center justify-content-md-between align-items-center">
-                    <div class="col-auto">
-                    </div>
-                    <div class="col-auto d-none d-md-block">
-                        @if (Route::has('login'))
-                        <div class="header-links">
-                            <ul>
-                                @auth
-                                    <li><i class="far fa-user"></i>{{ Auth::user()->name}}
-                                        <ul>
-                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a></li>
-                                        </ul>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                @else
-                                    <li><i class="far fa-user"></i><a href="{{route('login')}}">Se connecter</a></li>
-                                    @if (Route::has('register'))
-                                        <li><i class="far fa-user"></i><a href="{{route('register')}}">S'inscrire</a></li>
-                                    @endif
-                                @endauth
-                            </ul>
+    <header class="th-header header-layout7">
+        <div class="top-area" data-bg-src="{{ asset('urbanhaul/assets/img/bg/header_bg_1.png') }}">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row justify-content-center justify-content-md-between align-items-center">
+                        <div class="col-auto">
                         </div>
-                    @endif
+                        <div class="col-auto d-none d-md-block">
+                            @if (Route::has('login'))
+                                <div class="header-links">
+                                    <ul>
+                                        @auth
+                                            <li><i class="far fa-user"></i>{{ Auth::user()->name }}
+                                                <ul>
+                                                    <li><a href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se
+                                                            déconnecter</a></li>
+                                                </ul>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        @else
+                                            <li><i class="far fa-user"></i><a href="{{ route('login') }}">Se
+                                                    connecter</a></li>
+                                            @if (Route::has('register'))
+                                                <li><i class="far fa-user"></i><a
+                                                        href="{{ route('register') }}">S'inscrire</a></li>
+                                            @endif
+                                        @endauth
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Main Menu -->
-    <div class="sticky-wrapper">
-        <div class="menu-area">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-auto">
-                        <div class="header-logo">
-                            <a href="{{ route('welcome') }}"><img src="{{asset('urbanhaul/assets/img/logo3.svg')}}" alt="UrbanHaul"></a>
+        <!-- Main Menu -->
+        <div class="sticky-wrapper">
+            <div class="menu-area">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto">
+                            <div class="header-logo">
+                                <a href="{{ route('welcome') }}"><img
+                                        src="{{ asset('urbanhaul/assets/img/logo3.svg') }}" alt="UrbanHaul"></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-auto me-xl-auto">
-                        <nav class="main-menu d-none d-lg-block">
-                            <ul>
-                                <li>
-                                    <a href="{{ route('welcome') }}">Acceuil</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('aboutus')}}">A propos</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('contactus')}}">Contact</a>
-                                </li>
+                        <div class="col-auto me-xl-auto">
+                            <nav class="main-menu d-none d-lg-block">
+                                <ul>
+                                    <li>
+                                        <a href="{{ route('welcome') }}">Acceuil</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('aboutus') }}">A propos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('contactus') }}">Contact</a>
+                                    </li>
+                                    @auth
+                                        <li>
+                                            <a href="{{ route('paiement') }}">Paiements</a>
+                                        </li>
+                                    @endauth
+                                </ul>
+                            </nav>
+                            <button class="th-menu-toggle  d-inline-block d-lg-none"><i
+                                    class="far fa-bars"></i></button>
+                        </div>
+                        <div class="col-auto d-none d-xl-block">
+                            <div class="header-button">
                                 @auth
-                                <li>
-                                    <a href="{{route('paiement')}}">Paiements</a>
-                                </li>
+                                    <button type="button" class="icon-btn searchBoxToggler"><i
+                                            class="far fa-search"></i></button>
                                 @endauth
-                            </ul>
-                        </nav>
-                        <button class="th-menu-toggle  d-inline-block d-lg-none"><i
-                                class="far fa-bars"></i></button>
-                    </div>
-                    <div class="col-auto d-none d-xl-block">
-                        <div class="header-button">
-                            @auth
-                            <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button>
-                            @endauth
-                            <a href="#" class="icon-btn sideMenuToggler"><i class="far fa-bars"></i></a>
-                            @auth
-                            <a href="#" class="th-btn" id="findAgentButton">Trouver Un agent<i class="fa-regular fa-arrow-right ms-2"></i></a>
-                            @endauth
+                                <a href="#" class="icon-btn sideMenuToggler"><i class="far fa-bars"></i></a>
+                                @auth
+                                    <a href="#" class="th-btn" id="findAgentButton">Trouver Un agent<i
+                                            class="fa-regular fa-arrow-right ms-2"></i></a>
+                                @endauth
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="logo-shape"><img src="{{asset('urbanhaul/assets/img/logo-shape.svg')}}" alt=""></div>
-    <!-- Modal pour la sélection du service -->
-<div class="modal fade" id="agentServiceModal" tabindex="-1" aria-labelledby="agentServiceModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="agentServiceModalLabel">Sélectionner le service requis</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="agentServiceForm" action="{{ route('searchagent') }}" method="GET">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="serviceType" class="form-label">Choisissez le type de service :</label>
-                        <select class="form-select" id="serviceType" name="serviceType">
-                            <option value="livreur">Livreur</option>
-                            <option value="transporteur">Transporteur</option>
-                        </select>
+        <div class="logo-shape"><img src="{{ asset('urbanhaul/assets/img/logo-shape.svg') }}" alt=""></div>
+        <!-- Modal pour la sélection du service -->
+        <div class="modal fade" id="agentServiceModal" tabindex="-1" aria-labelledby="agentServiceModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="agentServiceModalLabel">Sélectionner le service requis</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Rechercher un agent</button>
-                </form>
+                    <div class="modal-body">
+                        <form id="agentServiceForm" action="{{ route('searchagent') }}" method="GET">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="serviceType" class="form-label">Choisissez le type de service :</label>
+                                <select class="form-select" id="serviceType" name="serviceType">
+                                    <option value="livreur">Livreur</option>
+                                    <option value="transporteur">Transporteur</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Rechercher un agent</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</header>
+    </header>
 
     <div class="space">
         <div class="container">
@@ -384,13 +390,13 @@ Header Area
                             @foreach($services as $service)
                             <tr class="wishlist_item">
                                 <td class="product-name">
-                                    {{ $service->type_service }}
+                                    {{ $service->notification->type_service }}
                                 </td>
                                 <td class="product-price">
                                     CFA {{ $service->prix }}
                                 </td>
                                 <td class="product-agent">
-                                    {{ $service->agent->name }}
+                                    {{ $service->notification->agent->name }}
                                 </td>
                                 <td class="product-action">
                                     <a href="{{ route('payMyFeda', ['id' => $service->id] ) }}" class="button th-btn"  name="pay-now" value="{{ $service->id }}" title="Payez maintenant">
@@ -402,13 +408,17 @@ Header Area
                         </tbody>
                     </table>
                 </form>
+
+                    </table>
+                </form>
             </div>
         </div>
     </div>
-<!--==============================
-			Footer Area
-	==============================-->
-    <footer class="footer-wrapper footer-layout7" data-bg-src="{{asset('urbanhaul/assets/img/bg/footer_bg_1.jpg')}}">
+    <!--==============================
+   Footer Area
+ ==============================-->
+    <footer class="footer-wrapper footer-layout7"
+        data-bg-src="{{ asset('urbanhaul/assets/img/bg/footer_bg_1.jpg') }}">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
@@ -416,7 +426,9 @@ Header Area
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo">
-                                    <a href="index.html"><img src="{{asset('urbanhaul/assets/img/logo-white3.svg')}}" alt="Taxiar"></a>
+                                    <a href="index.html"><img
+                                            src="{{ asset('urbanhaul/assets/img/logo-white3.svg') }}"
+                                            alt="Taxiar"></a>
                                 </div>
                                 <p class="about-text">Centric applications productize front end portals visualize front
                                     end is results and value added</p>
@@ -486,18 +498,20 @@ Header Area
         </div>
         <div class="copyright-wrap">
             <div class="container">
-                <p class="copyright-text">© 2023 <a href="https://themeforest.net/user/themeholy">Taxiar</a>. All Rights
+                <p class="copyright-text">© 2023 <a href="https://themeforest.net/user/themeholy">Taxiar</a>. All
+                    Rights
                     Reserved.</p>
             </div>
         </div>
-        <div class="footer-shape"><img src="{{asset('urbanhaul/assets/img/shape/footer_shape.png')}}" alt="shape">
+        <div class="footer-shape"><img src="{{ asset('urbanhaul/assets/img/shape/footer_shape.png') }}"
+                alt="shape">
         </div>
     </footer>
 
 
     <!--********************************
-			Code End  Here
-	******************************** -->
+   Code End  Here
+ ******************************** -->
 
     <!-- Scroll To Top -->
     <div class="scroll-top">
@@ -508,38 +522,38 @@ Header Area
         </svg>
     </div>
 
-     <!--==============================
+    <!--==============================
     All Js File
 ============================== -->
     <!-- Jquery -->
-    <script src="{{asset('urbanhaul/assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <!-- Slick Slider -->
-    <script src="{{asset('urbanhaul/assets/js/slick.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/slick.min.js') }}"></script>
     <!-- Bootstrap -->
-    <script src="{{asset('urbanhaul/assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/bootstrap.min.js') }}"></script>
     <!-- Magnific Popup -->
-    <script src="{{asset('urbanhaul/assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/jquery.magnific-popup.min.js') }}"></script>
     <!-- Counter Up -->
-    <script src="{{asset('urbanhaul/assets/js/jquery.counterup.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/jquery.counterup.min.js') }}"></script>
     <!-- Isotope Filter -->
-    <script src="{{asset('urbanhaul/assets/js/imagesloaded.pkgd.min.js')}}"></script>
-    <script src="{{asset('urbanhaul/assets/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/isotope.pkgd.min.js') }}"></script>
     <!-- Nice Select -->
-    <script src="{{asset('urbanhaul/assets/js/nice-select.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/nice-select.min.js') }}"></script>
     <!-- Date Time Picker -->
-    <script src="{{asset('urbanhaul/assets/js/jquery.datetimepicker.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/jquery.datetimepicker.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- Wow -->
-    <script src="{{asset('urbanhaul/assets/js/wow.min.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/wow.min.js') }}"></script>
     <!-- Main Js File -->
-    <script src="{{asset('urbanhaul/assets/js/main.js')}}"></script>
+    <script src="{{ asset('urbanhaul/assets/js/main.js') }}"></script>
 
     <script src="{{ asset('/sw.js') }}"></script>
 
     <script>
         if (!navigator.serviceWorker.controller) {
-            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            navigator.serviceWorker.register("/sw.js").then(function(reg) {
                 console.log("Service worker has been registered for scope: " + reg.scope);
             });
         }

@@ -4,14 +4,14 @@
     <div class="logo-box">
         <!-- Brand Logo Light -->
         <a href="index.html" class="logo-light">
-            <img src="{{asset('admin/assets/images/logo-light.png')}}" alt="logo" class="logo-lg" height="22">
-            <img src="{{asset('admin/assets/images/logo-sm.png')}}" alt="small logo" class="logo-sm" height="22">
+            <img src="{{ asset('admin/assets/images/logo-light.png') }}" alt="logo" class="logo-lg" height="22">
+            <img src="{{ asset('admin/assets/images/logo-sm.png') }}" alt="small logo" class="logo-sm" height="22">
         </a>
 
         <!-- Brand Logo Dark -->
         <a href="index.html" class="logo-dark">
-            <img src="{{asset('admin/assets/images/logo-dark.png')}}" alt="dark logo" class="logo-lg" height="22">
-            <img src="{{asset('admin/assets/images/logo-sm.png')}}" alt="small logo" class="logo-sm" height="22">
+            <img src="{{ asset('admin/assets/images/logo-dark.png') }}" alt="dark logo" class="logo-lg" height="22">
+            <img src="{{ asset('admin/assets/images/logo-sm.png') }}" alt="small logo" class="logo-sm" height="22">
         </a>
     </div>
 
@@ -453,7 +453,8 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="#menuMultilevel4" data-bs-toggle="collapse" class="menu-link waves-effect">
+                                    <a href="#menuMultilevel4" data-bs-toggle="collapse"
+                                        class="menu-link waves-effect">
                                         <span class="menu-text">Item 2</span>
                                         <span class="menu-arrow"></span>
                                     </a>
