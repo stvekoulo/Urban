@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PaiementController extends Controller
 {
+    const LIVE_SECRET = "sk_live_Oi1-RaFztCYT-yZS9wz_T_DQ";
+    const SANDBOX_SECRET = "sk_sandbox_ZzsodjrfZ6k4HtFGtjwrE-_Z";
+
+
+    const FEDA_LIVE = "live";
+    const FEDA_SANDBOX = "sandbox";
+
     public function index()
     {
         $expediteur = Auth::user();
@@ -23,14 +30,16 @@ class PaiementController extends Controller
         $fedaPay = new FedaPay();
         $transaction = new Transaction();
         // dd(10);
-        $fedaPay::setApiKey('sk_sandbox_ZzsodjrfZ6k4HtFGtjwrE-_Z');
-        $fedaPay::setEnvironment('sandbox');
+        $fedaPay::setApiKey(self::LIVE_SECRET);
+        $fedaPay::setEnvironment(self::FEDA_LIVE);
 
         $service = Service::where('id', $id)->get();
         // dd($service);
 
-
-
+        $pay = $transaction::retrieve(96362358);
+        $pay->sendNow('mtn');
+        dd($pay);
+        die;
         $achat = $transaction::create([
             "description" => "Article 2309ART",
             "amount" => 1000,
@@ -47,9 +56,10 @@ class PaiementController extends Controller
                 // ]
             ]
         ]);
-        $token = $achat->generateToken()->token;
 
-        $achat->sendNowWithToken('mtn', $token);
+        // $token = $transaction->generateToken()->token;
+
+        $achat->sendNow('mtn');
 
         dd($achat);
         /*
