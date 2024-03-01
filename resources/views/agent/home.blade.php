@@ -161,32 +161,34 @@
                         <div class="card">
                             <div class="card-body">
                                 <p class="card-subtitle mb-4 font-size-13">
-                                    <h2 class="container text-center">Point des recettes</h2>
+                                <h2 class="container text-center">Point des recettes</h2>
                                 </p>
                                 <br>
                                 <p>
-                                    <form class="form-horizontal" role="form">
-                                        <div class="mb-2 row">
-                                            <div class="mb-2 row col-md-4">
-                                                <label class="col-md-2 col-form-label" for="example-date">Du</label>
-                                                <div class="col-md-10">
-                                                    <input class="form-control" type="date" name="date_debut" id="date_debut">
-                                                </div>
-                                            </div>
-                                            <div class="mb-2 row col-md-4">
-                                                <label class="col-md-2 col-form-label" for="example-date">Au</label>
-                                                <div class="col-md-10">
-                                                    <input class="form-control" type="date" name="date_fin" id="date_fin">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button type="submit" class="btn btn-primary">Soumettre</button>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button type="submit" class="btn btn-primary">Soumettre</button>
+                                <form class="form-horizontal" role="form">
+                                    <div class="mb-2 row">
+                                        <div class="mb-2 row col-md-4">
+                                            <label class="col-md-2 col-form-label" for="example-date">Du</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="date" name="date_debut"
+                                                    id="date_debut">
                                             </div>
                                         </div>
-                                    </form>
+                                        <div class="mb-2 row col-md-4">
+                                            <label class="col-md-2 col-form-label" for="example-date">Au</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="date" name="date_fin"
+                                                    id="date_fin">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-primary">Soumettre</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-primary">Soumettre</button>
+                                        </div>
+                                    </div>
+                                </form>
                                 </p>
                                 <br>
                                 <div class="row">
@@ -195,11 +197,13 @@
                                             <div class="card-body">
 
                                                 <h4 class="card-title">Top 5 Customers</h4>
-                                                <p class="card-subtitle mb-4 font-size-13">Transaction period from 21 July to 25 Aug
+                                                <p class="card-subtitle mb-4 font-size-13">Transaction period from 21
+                                                    July to 25 Aug
                                                 </p>
 
                                                 <div class="table-responsive">
-                                                    <table class="table table-centered table-striped table-nowrap mb-0">
+                                                    <table
+                                                        class="table table-centered table-striped table-nowrap mb-0">
                                                         <thead>
                                                             <tr>
                                                                 <th>Type de service</th>
@@ -305,9 +309,10 @@
                                                 <p class="card-subtitle mb-4">Recent Stock</p>
 
                                                 <div class="text-center">
-                                                    <input data-plugin="knob" data-width="165" data-height="165" data-linecap=round
-                                                        data-fgColor="#7a08c2" value="95" data-skin="tron" data-angleOffset="180"
-                                                        data-readOnly=true data-thickness=".15" />
+                                                    <input data-plugin="knob" data-width="165" data-height="165"
+                                                        data-linecap=round data-fgColor="#7a08c2" value="95"
+                                                        data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                                        data-thickness=".15" />
                                                     <h5 class="text-muted mt-3">Total sales made today</h5>
 
 
@@ -318,12 +323,15 @@
                                                     <div class="row mt-3">
                                                         <div class="col-6">
                                                             <p class="text-muted font-15 mb-1 text-truncate">Target</p>
-                                                            <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k</h4>
+                                                            <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k
+                                                            </h4>
 
                                                         </div>
                                                         <div class="col-6">
-                                                            <p class="text-muted font-15 mb-1 text-truncate">Last week</p>
-                                                            <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k</h4>
+                                                            <p class="text-muted font-15 mb-1 text-truncate">Last week
+                                                            </p>
+                                                            <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k
+                                                            </h4>
                                                         </div>
 
                                                     </div>
@@ -338,9 +346,11 @@
                                                 <div class="row align-items-center">
                                                     <div class="col">
                                                         <h4 class="card-title">Account Transactions</h4>
-                                                        <p class="card-subtitle mb-4">Transaction period from 21 July to
+                                                        <p class="card-subtitle mb-4">Transaction period from 21 July
+                                                            to
                                                             25 Aug</p>
-                                                        <h3>$7841.12 <span class="badge badge-soft-success float-end">+7.5%</span>
+                                                        <h3>$7841.12 <span
+                                                                class="badge badge-soft-success float-end">+7.5%</span>
                                                         </h3>
                                                     </div>
                                                 </div>
@@ -642,71 +652,83 @@
                 </div>
                 <!--end row--> --}}
 
-                <div class="row">
+                    <div class="row">
 
-                    <!--end col-->
-                    <div class="col-lg-13">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-subtitle mb-4 font-size-13">
-                                <h2 class="container text-center">Services en Cours</h2>
-                                </p>
-                                <div class="">
-                                    <div class="container">
-                                        <table class="table table-centered table-striped table-nowrap mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Nom de l'expéditeur</th>
-                                                    <th>Adresse de livraison</th>
-                                                    <th>Type de service</th>
-                                                    {{-- <th>État du service</th> --}}
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-
-                                            </tbody>
-       
+                        <!--end col-->
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-subtitle mb-4 font-size-13">
+                                    <h2 class="container text-center">Services en Cours</h2>
+                                    </p>
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="table-responsive"> <!-- Ajoutez la classe table-responsive -->
+                                                @if ($services->isEmpty())
+                                                    <p>Aucun service en cours</p>
+                                                @else
+                                                    <table
+                                                        class="table table-centered table-striped table-nowrap mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Nom de l'expéditeur</th>
+                                                                <th>Description</th>
+                                                                <th>Type de service en cours</th>
+                                                                <th>État du service</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($services as $service)
+                                                                <tr>
+                                                                    <td>{{ $service->notification->id }}</td>
+                                                                    <td>{{ $service->notification->user->name }}</td>
+                                                                    <td>{{ $service->notification->description }}</td>
+                                                                    <td>{{ $service->notification->service_type }}</td>
+                                                                    <td>En cours</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
+                                <!--end card body-->
 
                             </div>
-                            <!--end card body-->
-
+                            <!--end card-->
                         </div>
-                        <!--end card-->
+
+                        <!--end col-->
+
                     </div>
-                    <!--end col-->
+                    <!--end row-->
 
-                </div>
-                <!--end row-->
+                </div> <!-- container -->
 
-            </div> <!-- container -->
+            </div> <!-- content -->
 
-        </div> <!-- content -->
+            <!-- Footer Start -->
 
-        <!-- Footer Start -->
+            <!-- end Footer -->
 
-        <!-- end Footer -->
+        </div>
 
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
 
     </div>
 
     @include('layouts.partials.agent.footer-scripts')
 
     <!-- Knob charts js -->
-    <script src="{{ asset('admin/assets/libs/jquery-knob/jquery.knob.min.js') }}">
-        </script>
+    <script src="{{ asset('admin/assets/libs/jquery-knob/jquery.knob.min.js') }}"></script>
 
-      <script src = "{{ asset('admin/assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}" >
-    </script>
+    <script src="{{ asset('admin/assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 
     <script src="{{ asset('admin/assets/libs/morris.js/morris.min.js') }}"></script>
 

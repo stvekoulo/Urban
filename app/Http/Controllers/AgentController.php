@@ -36,12 +36,15 @@ class AgentController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
 
-            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications);
+            $services = Service::whereHas('notification', function ($query) use ($user) {
+                $query->where('agent_id', $user->id);
+            })->get();
+
+            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services);
         } else {
             return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }
     }
-
     public function clearNotifications()
     {
         $agentId = auth()->user()->id;
@@ -54,7 +57,7 @@ class AgentController extends Controller
     {
         $validatedData = $request->validate([
             'notification_id' => 'required|exists:notifications,id',
-            'description' => 'nullable|required',
+            'description' => 'nullable',
             'prix' => 'required|numeric',
         ]);
 
