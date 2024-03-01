@@ -38,13 +38,10 @@ class PaiementController extends Controller
         $fedaPay::setApiKey(self::LIVE_SECRET);
         $fedaPay::setEnvironment(self::FEDA_LIVE);
 
-        $service = Service::where('id', $id)->get();
-        // dd($service);
+        $service = Service::where('id', $id)->with('expediteur')->first();
+        dd($service->prix);
 
-        $pay = $transaction::retrieve(96362358);
-        $pay->sendNow('mtn');
-        dd($pay);
-        die;
+        // die;
         $achat = $transaction::create([
             'description' => 'Article 2309ART',
             'amount' => 1000,
@@ -62,11 +59,15 @@ class PaiementController extends Controller
             ],
         ]);
 
+        $pay = $transaction::retrieve(96362358);
+        $pay->sendNow('mtn');
+        $id_transaction = $pay->id;
+
         // $token = $transaction->generateToken()->token;
 
         $achat->sendNow('mtn');
 
-        dd($achat);
+        // dd($achat);
         /*
          * Générer un lien sécurisé de paiement
          * {
@@ -74,6 +75,6 @@ class PaiementController extends Controller
          *   "url": "https://process.fedapay.com/SECURED_TOKEN"
          * }
          */
-        return redirect()->back();
+        return redirect()->back()->with('messageTransaction', 'Votre Transaction a été effectué avec succès');
     }
 }

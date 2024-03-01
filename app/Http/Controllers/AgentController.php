@@ -54,7 +54,7 @@ class AgentController extends Controller
     {
         $validatedData = $request->validate([
             'notification_id' => 'required|exists:notifications,id',
-            'description' => 'nullable|required',
+            'description' => 'nullable',
             'prix' => 'required|numeric',
         ]);
 
