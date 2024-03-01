@@ -660,7 +660,7 @@
                                                     <th>Nom de l'expéditeur</th>
                                                     <th>Adresse de livraison</th>
                                                     <th>Type de service</th>
-                                                    <th>État du service</th>
+                                                    {{-- <th>État du service</th> --}}
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
