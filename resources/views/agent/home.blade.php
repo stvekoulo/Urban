@@ -347,7 +347,55 @@
             
                                                 <div id="sparkline1Container">
                                                     <canvas id="sparkline1"></canvas>
-                                                   
+                                                    <script>
+                                                
+                                                        document.addEventListener('DOMContentLoaded', function () {
+                                                            var sparklineData = [5, 8, 9, 12, 8, 10, 7, 9, 11, 13];
+                                                    
+                                                        
+                                                            var sparklineOptions = {
+                                                                type: 'line',
+                                                                data: {
+                                                                    labels: Array.from({ length: sparklineData.length }, (_, i) => i + 1), // Utiliser des étiquettes numérotées
+                                                                    datasets: [{
+                                                                        data: sparklineData,
+                                                                        borderColor: '#00aabb',
+                                                                        backgroundColor: 'transparent',
+                                                                        borderWidth: 2,
+                                                                        pointRadius: 3,
+                                                                        pointBackgroundColor: '#ff0000',
+                                                                        pointBorderColor: '#ff0000',
+                                                                        pointHoverRadius: 4,
+                                                                        pointHoverBackgroundColor: '#00aabb',
+                                                                        pointHoverBorderColor: '#00aabb',
+                                                                    }]
+                                                                },
+                                                                options: {
+                                                                    responsive: true,
+                                                                    maintainAspectRatio: false,
+                                                                    legend: {
+                                                                        display: false,
+                                                                    },
+                                                                    scales: {
+                                                                        xAxes: [{
+                                                                            display: false,
+                                                                        }],
+                                                                        yAxes: [{
+                                                                            display: false,
+                                                                        }],
+                                                                    },
+                                                                    tooltips: {
+                                                                        enabled: false,
+                                                                    },
+                                                                }
+                                                            };
+                                                
+                                                            var ctx = document.getElementById('sparkline1').getContext('2d');
+                                                    
+                                                        
+                                                            new Chart(ctx, sparklineOptions);
+                                                        });
+                                                    </script>
                                                     
                                                 </div>
                                                 
@@ -658,14 +706,35 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Nom de l'expéditeur</th>
-                                                   {{-- <th>Adresse de livraison</th> --}} 
+                                                    <th>Adresse de livraison</th>
                                                     <th>Type de service</th>
-                                                    {{-- <th>État du service</th> --}}
+                                                    <th>État du service</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                
+            
+                                                @foreach ($services as $service)
+                                                    <tr>
+                                                        <td>{{ $service->id }}</td>
+                                                        <td>{{ $service->expediteur->nom }}</td>
+                                                        <td>{{ $service->adresse_livraison }}</td>
+                                                        <td>{{ $service->type_service }}</td>
+                                                        <td>{{ $service->etat_service }}</td>
+                                                        <td>
+                                                            @if ($service->etat_service == 'En cours')
+                                                                <form action="{{ route('terminerService', ['id' => $service->id]) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <button type="submit" class="btn btn-success">Terminer</button>
+                                                                </form>
+                                                            @else
+                                                            
+                                                                Service terminé
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                         
