@@ -57,6 +57,10 @@ Route::post('/accept-notification', [AgentController::class, 'acceptNotification
 
 Route::get('/paiement', [PaiementController::class, 'index'])->name('paiement');
 
+
+Route::get('/paiement-myfeda/{id}', [PaiementController::class, 'payMyFeda'])->name('payMyFeda');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })
@@ -72,4 +76,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
