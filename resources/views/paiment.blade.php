@@ -417,7 +417,7 @@ Header Area
                                         </a> --}}
                                         @if ($service->payer)
                                             <button class="btn btn-success" disabled>
-                                                <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt"> Payé </span>
+                                                <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt"> En cours de validation </span>
                                             </button>
                                         @else
                                             <a href="{{ route('payMyFeda', ['id' => $service->id]) }}" class="button th-btn" name="pay-now" value="{{ $service->id }}" title="Payez maintenant">

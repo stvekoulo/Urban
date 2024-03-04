@@ -10,12 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PaiementController extends Controller
 {
-    const LIVE_SECRET = "sk_live_Oi1-RaFztCYT-yZS9wz_T_DQ";
-    const SANDBOX_SECRET = "sk_sandbox_ZzsodjrfZ6k4HtFGtjwrE-_Z";
+    const LIVE_SECRET = 'sk_live_Oi1-RaFztCYT-yZS9wz_T_DQ';
+    const SANDBOX_SECRET = 'sk_sandbox_ZzsodjrfZ6k4HtFGtjwrE-_Z';
 
-
-    const FEDA_LIVE = "live";
-    const FEDA_SANDBOX = "sandbox";
+    const FEDA_LIVE = 'live';
+    const FEDA_SANDBOX = 'sandbox';
 
     public function index()
     {
@@ -32,6 +31,14 @@ class PaiementController extends Controller
 
     public function payMyFeda($id)
     {
+        $expediteur = Auth::user();
+
+        $services = Service::with('notification')
+            ->whereHas('notification', function ($query) use ($expediteur) {
+                $query->where('user_id', $expediteur->id);
+            })
+            ->get();
+
         $fedaPay = new FedaPay();
         $transaction = new Transaction();
         // dd(10);
@@ -40,12 +47,22 @@ class PaiementController extends Controller
 
         $service = Service::where('id', $id)->with('expediteur')->first();
         // dd($service->prix);
-        // $service->prix;
+        //service->prix;
+        $price = $service->prix;
 
+        if (!$service) {
+            return redirect()->back()->with('errorMessage', 'Service introuvable.');
+        }
+
+        $price = (float) $service->prix;
+
+        if ($price > 5000) {
+            return redirect()->back()->with('errorMessage', 'Le montant ne doit pas dépasser 5000 FCFA');
+        }
         // die;
         $achat = $transaction::create([
             'description' => 'Article 2309ART',
-            'amount' => 1000,
+            'amount' => $price,
             'currency' => ['code' => 952],
             'callback_url' => 'http://e-shop.com/payment/callback.php',
             'customer' => [
@@ -60,10 +77,8 @@ class PaiementController extends Controller
             ],
         ]);
 
-
         $id_transaction = $achat->id;
         $service->updateTransactionId($id_transaction);
-
 
         $pay = $transaction::retrieve(96362358);
         $pay->sendNow('mtn');
