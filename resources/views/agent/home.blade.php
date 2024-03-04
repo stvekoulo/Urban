@@ -55,7 +55,7 @@
                         'subtitle' => 'Dashtrap',
                         'title' => 'Dashboard',
                     ])
-                    
+
                     {{-- Récapitulatif --}}
                     <div class="row">
                         <div class="col-md-6 col-xl-4">
@@ -126,13 +126,13 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">Jour</span>
+                                        <span class="badge badge-soft-primary float-end">{{ now()->format('d/m/Y') }}</span>
                                         <h3 class="card-title mb-0">Nombre de service</h3>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h3 class="d-flex align-items-center mb-0">
-                                                5
+                                                {{ $services->count() }}
                                             </h3>
                                         </div>
                                         <div class="col-4 text-end">
@@ -161,45 +161,49 @@
                         <div class="card">
                             <div class="card-body">
                                 <p class="card-subtitle mb-4 font-size-13">
-                                    <h2 class="container text-center">Point des recettes</h2>
+                                <h2 class="container text-center">Point des recettes</h2>
                                 </p>
                                 <br>
                                 <p>
-                                    <form class="form-horizontal" role="form">
-                                        <div class="mb-2 row">
-                                            <div class="mb-2 row col-md-4">
-                                                <label class="col-md-2 col-form-label" for="example-date">Du</label>
-                                                <div class="col-md-10">
-                                                    <input class="form-control" type="date" name="date_debut" id="date_debut">
-                                                </div>
-                                            </div>
-                                            <div class="mb-2 row col-md-4">
-                                                <label class="col-md-2 col-form-label" for="example-date">Au</label>
-                                                <div class="col-md-10">
-                                                    <input class="form-control" type="date" name="date_fin" id="date_fin">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button type="submit" class="btn btn-primary">Soumettre</button>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button type="submit" class="btn btn-primary">Soumettre</button>
+                                <form class="form-horizontal" role="form">
+                                    <div class="mb-2 row">
+                                        <div class="mb-2 row col-md-4">
+                                            <label class="col-md-2 col-form-label" for="example-date">Du</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="date" name="date_debut"
+                                                    id="date_debut">
                                             </div>
                                         </div>
-                                    </form>
+                                        <div class="mb-2 row col-md-4">
+                                            <label class="col-md-2 col-form-label" for="example-date">Au</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="date" name="date_fin"
+                                                    id="date_fin">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-primary">Soumettre</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-primary">Soumettre</button>
+                                        </div>
+                                    </div>
+                                </form>
                                 </p>
                                 <br>
                                 <div class="row">
                                     <div class="col-lg-5">
                                         <div class="card">
                                             <div class="card-body">
-            
+
                                                 <h4 class="card-title">Top 5 Customers</h4>
-                                                <p class="card-subtitle mb-4 font-size-13">Transaction period from 21 July to 25 Aug
+                                                <p class="card-subtitle mb-4 font-size-13">Transaction period from 21
+                                                    July to 25 Aug
                                                 </p>
-            
+
                                                 <div class="table-responsive">
-                                                    <table class="table table-centered table-striped table-nowrap mb-0">
+                                                    <table
+                                                        class="table table-centered table-striped table-nowrap mb-0">
                                                         <thead>
                                                             <tr>
                                                                 <th>Type de service</th>
@@ -219,7 +223,7 @@
                                                                     07/07/2018
                                                                 </td>
                                                             </tr>
-            
+
                                                             <tr>
                                                                 <td>
                                                                     bryuellen@dayrep.com
@@ -264,7 +268,7 @@
                                                                     07/15/2018
                                                                 </td>
                                                             </tr>
-            
+
                                                             <tr>
                                                                 <td>
                                                                     collier@jourrapide.com
@@ -290,85 +294,91 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-            
+
                                             </div>
                                             <!--end card body-->
-            
+
                                         </div>
                                         <!--end card-->
                                     </div> <!-- end col -->
-            
+
                                     <div class="col-lg-4">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h4 class="card-title">Stock</h4>
                                                 <p class="card-subtitle mb-4">Recent Stock</p>
-            
+
                                                 <div class="text-center">
-                                                    <input data-plugin="knob" data-width="165" data-height="165" data-linecap=round
-                                                        data-fgColor="#7a08c2" value="95" data-skin="tron" data-angleOffset="180"
-                                                        data-readOnly=true data-thickness=".15" />
+                                                    <input data-plugin="knob" data-width="165" data-height="165"
+                                                        data-linecap=round data-fgColor="#7a08c2" value="95"
+                                                        data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                                        data-thickness=".15" />
                                                     <h5 class="text-muted mt-3">Total sales made today</h5>
-            
-            
+
+
                                                     <p class="text-muted w-75 mx-auto sp-line-2">Traditional heading
                                                         elements are
                                                         designed to work best in the meat of your page content.</p>
-            
+
                                                     <div class="row mt-3">
                                                         <div class="col-6">
                                                             <p class="text-muted font-15 mb-1 text-truncate">Target</p>
-                                                            <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k</h4>
-            
+                                                            <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k
+                                                            </h4>
+
                                                         </div>
                                                         <div class="col-6">
-                                                            <p class="text-muted font-15 mb-1 text-truncate">Last week</p>
-                                                            <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k</h4>
+                                                            <p class="text-muted font-15 mb-1 text-truncate">Last week
+                                                            </p>
+                                                            <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k
+                                                            </h4>
                                                         </div>
-            
+
                                                     </div>
                                                 </div>
                                             </div> <!--end card body-->
                                         </div> <!-- end card-->
                                     </div> <!-- end col -->
-            
+
                                     <div class="col-lg-3">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="row align-items-center">
                                                     <div class="col">
                                                         <h4 class="card-title">Account Transactions</h4>
-                                                        <p class="card-subtitle mb-4">Transaction period from 21 July to
+                                                        <p class="card-subtitle mb-4">Transaction period from 21 July
+                                                            to
                                                             25 Aug</p>
-                                                        <h3>$7841.12 <span class="badge badge-soft-success float-end">+7.5%</span>
+                                                        <h3>$7841.12 <span
+                                                                class="badge badge-soft-success float-end">+7.5%</span>
                                                         </h3>
                                                     </div>
-                                                </div> 
-            
+                                                </div>
+
                                                 <div id="sparkline1Container">
                                                     <canvas id="sparkline1"></canvas>
-                                                   
-                                                    
+
+
                                                 </div>
-                                                
-                                               
+
+
                                             </div>
-                                            
+
                                             <!--end card body-->
                                         </div>
                                         <!--end card-->
-            
+
                                     </div><!-- end col -->
                                 </div>
                                 {{-- <div class="row">
                                     <div class="col-lg-4">
                                         <div class="card">
                                             <div class="card-body">
-                                                
+
                                                 <h4 class="card-title">Point</h4>
                                                 <p class="card-subtitle mb-4 font-size-13">
                                                 </p>
-            
+
                                                 <div class="table-responsive">
                                                     <table class="table table-centered table-striped table-nowrap mb-0">
                                                         <thead>
@@ -392,10 +402,10 @@
                                                                 <td>
                                                                     pauljfrnd@jourrapide.com
                                                                 </td>
-                                                                
-                                                            
+
+
                                                             </tr>
-            
+
                                                             <tr>
                                                                 <td class="table-user">
                                                                     <img src="assets/images/users/avatar-3.jpg" alt="table-user"
@@ -409,21 +419,21 @@
                                                                 <td>
                                                                     bryuellen@dayrep.com
                                                                 </td>
-                                                                
-                                                                
+
+
                                                             </tr>
-                                                            
-            
+
+
                                                         </tbody>
                                                     </table>
                                                 </div>
-            
+
                                             </div>
-                                            
+
                                             <!--end card body-->
-            
+
                                         </div>
-                                    
+
                                         <!--end card-->
                                     </div>
                                     <div class="col-lg-4">
@@ -431,35 +441,35 @@
                                             <div class="card-body">
                                                 <h4 class="card-title">Stock</h4>
                                                 <p class="card-subtitle mb-4">Recent Stock</p>
-            
+
                                                 <div class="text-center">
                                                     <input data-plugin="knob" data-width="165" data-height="165" data-linecap=round
                                                         data-fgColor="#7a08c2" value="95" data-skin="tron" data-angleOffset="180"
                                                         data-readOnly=true data-thickness=".15" />
                                                     <h5 class="text-muted mt-3">Total sales made today</h5>
-            
-            
+
+
                                                     <p class="text-muted w-75 mx-auto sp-line-2">Traditional heading
                                                         elements are
                                                         designed to work best in the meat of your page content.</p>
-            
+
                                                     <div class="row mt-3">
                                                         <div class="col-6">
                                                             <p class="text-muted font-15 mb-1 text-truncate">Target</p>
                                                             <h4><i class="fas fa-arrow-up text-success me-1"></i>$7.8k</h4>
-            
+
                                                         </div>
                                                         <div class="col-6">
                                                             <p class="text-muted font-15 mb-1 text-truncate">Last week</p>
                                                             <h4><i class="fas fa-arrow-down text-danger me-1"></i>$1.4k</h4>
                                                         </div>
-            
+
                                                     </div>
                                                 </div>
                                             </div> <!--end card body-->
                                         </div> <!-- end card-->
                                     </div> <!-- end col -->
-            
+
                                     <div class="col-lg-3">
                                         <div class="card">
                                             <div class="card-body">
@@ -472,13 +482,13 @@
                                                         </h3>
                                                     </div>
                                                 </div> <!-- end row -->
-            
+
                                                 <div id="sparkline1" class="mt-3"></div>
                                             </div>
                                             <!--end card body-->
                                         </div>
                                         <!--end card-->
-            
+
                                     </div>
                                 </div> --}}
 
@@ -545,7 +555,7 @@
 
 
 
-                    
+
                     {{-- Ancien Point des recettes --}}
 
                     {{-- <div class="container text-center">
@@ -567,13 +577,13 @@
                             <form action="#" style="display: flex; align-items: center;">
                                 <label for="start_date" style="margin-right: 15px;">Date de début:</label>
                                 <input type="date" class="form-control custom-btn" name="start_date" id="start_date" required style="margin-right: 10px; width: 300px;">
-                            
+
                                 <label for="end_date" style="margin-right: 15px;">Date de fin:</label>
                                 <input type="date" class="form-control custom-btn" name="end_date" id="end_date" required style="margin-right: 10px; width: 300px;">
-                            
+
                                 <button type="submit" class="btn btn-primary custom-btn" style="margin-right: 10px;">Point Journalier</button>
                                 <button type="submit" class="btn btn-primary custom-btn">Rechercher</button>
-                            
+
                             </form>
 
                     </p>
@@ -639,74 +649,86 @@
                         <!--end card-->
                     </div>
 
-                </div> 
+                </div>
                 <!--end row--> --}}
 
-                <div class="row">
+                    <div class="row">
 
-                    <!--end col-->
-                    <div class="col-lg-13">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-subtitle mb-4 font-size-13">
-                                <h2 class="container text-center">Services en Cours</h2>
-                                </p>
-                                <div class="">
-                                    <div class="container">
-                                        <table class="table table-centered table-striped table-nowrap mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Nom de l'expéditeur</th>
-                                                   {{-- <th>Adresse de livraison</th> --}} 
-                                                    <th>Type de service</th>
-                                                    {{-- <th>État du service</th> --}}
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                
-                                            </tbody>
-                                        </table>
-                                        
+                        <!--end col-->
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-subtitle mb-4 font-size-13">
+                                    <h2 class="container text-center">Services en Cours</h2>
+                                    </p>
+                                    <div class="">
+                                        <div class="container">
+                                            <div class="table-responsive"> <!-- Ajoutez la classe table-responsive -->
+                                                @if ($services->isEmpty())
+                                                    <p>Aucun service en cours</p>
+                                                @else
+                                                    <table
+                                                        class="table table-centered table-striped table-nowrap mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Nom de l'expéditeur</th>
+                                                                <th>Description</th>
+                                                                <th>Type de service en cours</th>
+                                                                <th>État du service</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($services as $service)
+                                                                <tr>
+                                                                    <td>{{ $service->notification->id }}</td>
+                                                                    <td>{{ $service->notification->user->name }}</td>
+                                                                    <td>{{ $service->notification->description }}</td>
+                                                                    <td>{{ $service->notification->service_type }}</td>
+                                                                    <td> <span class="dot blink"></span> En cours</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
+                                <!--end card body-->
 
                             </div>
-                            <!--end card body-->
-
+                            <!--end card-->
                         </div>
-                        <!--end card-->
+
+                        <!--end col-->
+
                     </div>
-                    <!--end col-->
+                    <!--end row-->
 
-                </div>
-                <!--end row-->
+                </div> <!-- container -->
 
-            </div> <!-- container -->
+            </div> <!-- content -->
 
-        </div> <!-- content -->
+            <!-- Footer Start -->
 
-        <!-- Footer Start -->
+            <!-- end Footer -->
 
-        <!-- end Footer -->
+        </div>
 
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- End Page content -->
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
 
     </div>
 
     @include('layouts.partials.agent.footer-scripts')
 
     <!-- Knob charts js -->
-    <script src="{{ asset('admin/assets/libs/jquery-knob/jquery.knob.min.js') }}">
-        </script>
+    <script src="{{ asset('admin/assets/libs/jquery-knob/jquery.knob.min.js') }}"></script>
 
-      <script src = "{{ asset('admin/assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}" >
-    </script>
+    <script src="{{ asset('admin/assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 
     <script src="{{ asset('admin/assets/libs/morris.js/morris.min.js') }}"></script>
 

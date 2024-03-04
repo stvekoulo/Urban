@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\Notification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+
 
 class Service extends Model
 {
@@ -30,4 +32,5 @@ class Service extends Model
     {
         return $this->belongsTo(Notification::class);
     }
+
 }

@@ -403,7 +403,7 @@ Header Area
                                         CFA {{ $service->prix }}
                                     </td>
                                     <td class="product-agent">
-                                        {{ $service->notification->agent->name }}
+                                        {{ $service->notification->agent_id}}
                                     </td>
                                     {{-- <td class="product-agent">
                                         {{ $service->paye }}

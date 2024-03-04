@@ -53,10 +53,6 @@ class AgentDetailController extends Controller
 
             $existingRequest = Notification::where('agent_id', $agentId)->where('user_id', $userId)->exists();
 
-            if ($existingRequest) {
-                return response()->json(['error' => false, 'message' => 'Vous avez déjà envoyé une demande à cet agent.'], 403);
-            }
-
             Notification::create([
                 'agent_id' => $agentId,
                 'user_id' => $userId,
