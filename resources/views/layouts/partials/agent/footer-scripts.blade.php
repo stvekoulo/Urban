@@ -98,28 +98,30 @@
     });
 </script>
 
-<script>
-    $(function() {
-        // Données des transactions d'hier et d'aujourd'hui
-        var yesterdayTransactions = {{ $servicesPayesYesterday }};
-        var todayTransactions = {{ $servicesPayesToday }};
+@if(Request::is('agent/home'))
+    <script>
+        $(function() {
+            // Données des transactions d'hier et d'aujourd'hui
+            var yesterdayTransactions = {{ $servicesPayesYesterday }};
+            var todayTransactions = {{ $servicesPayesToday }};
 
-        // Initialisation du graphique en aire
-        Morris.Area({
-            element: 'morris-area-example',
-            data: [
-                { y: 'Hier', a: yesterdayTransactions, b: 0 },
-                { y: 'Aujourd\'hui', a: 0, b: todayTransactions },
-            ],
-            xkey: 'y',
-            ykeys: ['a', 'b'],
-            labels: ['Hier', 'Aujourd\'hui'],
-            lineColors: ['#4a81d4', '#f1556c'],
-            pointFillColors: ['#ffffff'],
-            lineWidth: 2,
-            resize: true,
-            parseTime: false
+            // Initialisation du graphique en aire
+            Morris.Area({
+                element: 'morris-area-example',
+                data: [
+                    { y: 'Hier', a: yesterdayTransactions, b: 0 },
+                    { y: 'Aujourd\'hui', a: 0, b: todayTransactions },
+                ],
+                xkey: 'y',
+                ykeys: ['a', 'b'],
+                labels: ['Hier', 'Aujourd\'hui'],
+                lineColors: ['#4a81d4', '#f1556c'],
+                pointFillColors: ['#ffffff'],
+                lineWidth: 2,
+                resize: true,
+                parseTime: false
+            });
         });
-    });
-</script>
+    </script>
+@endif
 
