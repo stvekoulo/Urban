@@ -342,34 +342,21 @@
                                     </div> <!-- end col -->
 
                                     <div class="col-lg-3">
-                                        <div class="card">
+                                        <div class="card" dir="ltr">
                                             <div class="card-body">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <h4 class="card-title">Account Transactions</h4>
-                                                        <p class="card-subtitle mb-4">Transaction period from 21 July
-                                                            to
-                                                            25 Aug</p>
-                                                        <h3>$7841.12 <span
-                                                                class="badge badge-soft-success float-end">+7.5%</span>
-                                                        </h3>
-                                                    </div>
+                                                <h4 class="header-title mb-3">Graphique en aire</h4>
+                                                <div class="text-center">
+                                                    <p class="text-muted font-size-15 mb-0">
+                                                        <span class="mx-2"><i class="mdi mdi-checkbox-blank-circle text-blue"></i> Hier</span>
+                                                        <span class="mx-2"><i class="mdi mdi-checkbox-blank-circle text-danger"></i> Aujourd'hui</span>
+                                                    </p>
                                                 </div>
-
-                                                <div id="sparkline1Container">
-                                                    <canvas id="sparkline1"></canvas>
-
-
-                                                </div>
-
-
+                                                <div id="morris-area-example" style="height: 350px;" class="morris-chart"></div>
                                             </div>
+                                        </div> <!-- end card-->
+                                    </div>
 
-                                            <!--end card body-->
-                                        </div>
-                                        <!--end card-->
 
-                                    </div><!-- end col -->
                                 </div>
                                 {{-- <div class="row">
                                     <div class="col-lg-4">

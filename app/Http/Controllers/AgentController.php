@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Service;
 use App\Models\UserStatus;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Service;
 
 class AgentController extends Controller
 {
@@ -46,7 +47,11 @@ class AgentController extends Controller
                 ->where('payer', 1)
                 ->sum('prix');
 
-            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services)->with('servicesPayes', $servicesPayes);
+            $servicesPayesToday = Service::whereDate('created_at', Carbon::today())->where('payer', 1)->sum('prix');
+
+            $servicesPayesYesterday = Service::whereDate('created_at', Carbon::yesterday())->where('payer', 1)->sum('prix');
+
+            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services)->with('servicesPayes', $servicesPayes)->with('servicesPayesToday', $servicesPayesToday)->with('servicesPayesYesterday', $servicesPayesYesterday);
         } else {
             return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }

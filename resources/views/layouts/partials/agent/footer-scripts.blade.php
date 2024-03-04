@@ -49,11 +49,11 @@
     }
 </script>
 <script>
-                                                
+
     document.addEventListener('DOMContentLoaded', function () {
         var sparklineData = [5, 8, 9, 12, 8, 10, 7, 9, 11, 13];
 
-    
+
         var sparklineOptions = {
             type: 'line',
             data: {
@@ -93,7 +93,33 @@
 
         var ctx = document.getElementById('sparkline1').getContext('2d');
 
-    
+
         new Chart(ctx, sparklineOptions);
     });
 </script>
+
+<script>
+    $(function() {
+        // Données des transactions d'hier et d'aujourd'hui
+        var yesterdayTransactions = {{ $servicesPayesYesterday }};
+        var todayTransactions = {{ $servicesPayesToday }};
+
+        // Initialisation du graphique en aire
+        Morris.Area({
+            element: 'morris-area-example',
+            data: [
+                { y: 'Hier', a: yesterdayTransactions, b: 0 },
+                { y: 'Aujourd\'hui', a: 0, b: todayTransactions },
+            ],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['Hier', 'Aujourd\'hui'],
+            lineColors: ['#4a81d4', '#f1556c'],
+            pointFillColors: ['#ffffff'],
+            lineWidth: 2,
+            resize: true,
+            parseTime: false
+        });
+    });
+</script>
+
