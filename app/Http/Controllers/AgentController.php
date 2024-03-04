@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class AgentController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
         if (Auth::check() && Auth::user()->role === 'agent') {
             $user = auth()->user();
@@ -51,7 +51,17 @@ class AgentController extends Controller
 
             $servicesPayesYesterday = Service::whereDate('created_at', Carbon::yesterday())->where('payer', 1)->sum('prix');
 
-            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services)->with('servicesPayes', $servicesPayes)->with('servicesPayesToday', $servicesPayesToday)->with('servicesPayesYesterday', $servicesPayesYesterday);
+            $date_debut = $request->input('date_debut');
+            $date_fin = $request->input('date_fin');
+
+            $date_debut = Carbon::parse($date_debut)->startOfDay();
+            $date_fin = Carbon::parse($date_fin)->endOfDay();
+
+            $serviceintervalle = Service::whereBetween('created_at', [$date_debut, $date_fin])
+                ->with('notification')
+                ->get();
+
+            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services)->with('serviceintervalle', $serviceintervalle)->with('servicesPayes', $servicesPayes)->with('servicesPayesToday', $servicesPayesToday)->with('servicesPayesYesterday', $servicesPayesYesterday)->with('date_debut', $date_debut)->with('date_fin', $date_fin);
         } else {
             return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }
@@ -132,5 +142,54 @@ class AgentController extends Controller
     private function profilIsComplete($user)
     {
         return !empty($user->phone_number) && !empty($user->whatsapp_link) && !empty($user->national_id) && !empty($user->photo);
+    }
+
+    public function interval(Request $request)
+    {
+        $user = auth()->user();
+        $status = $user->status ? $user->status->status : 'Non défini';
+        $statusText = '';
+
+        switch ($status) {
+            case 'available':
+                $statusText = 'Disponible';
+                break;
+            case 'not_available':
+                $statusText = 'Non disponible';
+                break;
+            default:
+                $statusText = 'Statut inconnu';
+        }
+        $lastUpdated = $user->status ? $user->status->updated_at->diffForHumans() : 'Non disponible';
+
+        $notifications = Notification::where('agent_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $services = Service::whereHas('notification', function ($query) use ($user) {
+            $query->where('agent_id', $user->id);
+        })->get();
+
+        $servicesPayes = Service::whereHas('notification', function ($query) use ($user) {
+            $query->where('agent_id', $user->id);
+        })
+            ->where('payer', 1)
+            ->sum('prix');
+
+        $servicesPayesToday = Service::whereDate('created_at', Carbon::today())->where('payer', 1)->sum('prix');
+
+        $servicesPayesYesterday = Service::whereDate('created_at', Carbon::yesterday())->where('payer', 1)->sum('prix');
+
+        $date_debut = $request->input('date_debut');
+        $date_fin = $request->input('date_fin');
+
+        $date_debut = Carbon::parse($date_debut)->startOfDay();
+        $date_fin = Carbon::parse($date_fin)->endOfDay();
+
+        $serviceintervalle = Service::whereBetween('created_at', [$date_debut, $date_fin])
+            ->with('notification')
+            ->get();
+
+        return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services)->with('serviceintervalle', $serviceintervalle)->with('servicesPayes', $servicesPayes)->with('servicesPayesToday', $servicesPayesToday)->with('servicesPayesYesterday', $servicesPayesYesterday)->with('date_debut', $date_debut)->with('date_fin', $date_fin);
     }
 }

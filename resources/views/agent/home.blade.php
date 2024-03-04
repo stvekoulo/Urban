@@ -166,17 +166,18 @@
                                 </p>
                                 <br>
                                 <p>
-                                <form class="form-horizontal" role="form">
+                                <form method="GET" action="{{ route('agent.interval') }}" class="form-horizontal"
+                                    role="form">
                                     <div class="mb-2 row">
                                         <div class="mb-2 row col-md-4">
-                                            <label class="col-md-2 col-form-label" for="example-date">Du</label>
+                                            <label class="col-md-2 col-form-label" for="date_debut">Du</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="date" name="date_debut"
                                                     id="date_debut">
                                             </div>
                                         </div>
                                         <div class="mb-2 row col-md-4">
-                                            <label class="col-md-2 col-form-label" for="example-date">Au</label>
+                                            <label class="col-md-2 col-form-label" for="date_fin">Au</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="date" name="date_fin"
                                                     id="date_fin">
@@ -185,123 +186,48 @@
                                         <div class="col-md-2">
                                             <button type="submit" class="btn btn-primary">Soumettre</button>
                                         </div>
-                                        <div class="col-md-2">
-                                            <button type="submit" class="btn btn-primary">Soumettre</button>
-                                        </div>
                                     </div>
                                 </form>
+
                                 </p>
                                 <br>
                                 <div class="row">
                                     <div class="col-lg-5">
                                         <div class="card">
                                             <div class="card-body">
-
-                                                <h4 class="card-title">Top 5 Customers</h4>
-                                                <p class="card-subtitle mb-4 font-size-13">Transaction period from 21
-                                                    July to 25 Aug
-                                                </p>
-
+                                                <h4 class="card-title">Services effectués</h4>
+                                                <p class="card-subtitle mb-4 font-size-13">Intervalle de transaction du {{ $date_debut }} au {{ $date_fin }}</p>
                                                 <div class="table-responsive">
-                                                    <table
-                                                        class="table table-centered table-striped table-nowrap mb-0">
+                                                    <table class="table table-centered table-striped table-nowrap mb-0">
                                                         <thead>
                                                             <tr>
                                                                 <th>Type de service</th>
-                                                                <th>Montant</th>
-                                                                <th>Etat de service</th>
+                                                                <th>Prix</th>
+                                                                <th>État de service</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @foreach ($serviceintervalle as $service)
                                                             <tr>
+                                                                <td>{{ $service->notification->service_type }}</td>
+                                                                <td>{{ $service->prix }}</td>
                                                                 <td>
-                                                                    pauljfrnd@jourrapide.com
-                                                                </td>
-                                                                <td>
-                                                                    New York
-                                                                </td>
-                                                                <td>
-                                                                    07/07/2018
+                                                                    @if ($service->payer == 1)
+                                                                        <span class="dot blink red"></span> Fin du
+                                                                        service
+                                                                    @else
+                                                                        <span class="dot blink green"></span> En
+                                                                        cours
+                                                                    @endif
                                                                 </td>
                                                             </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    bryuellen@dayrep.com
-                                                                </td>
-                                                                <td>
-                                                                    New York
-                                                                </td>
-                                                                <td>
-                                                                    09/12/2018
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    collier@jourrapide.com
-                                                                </td>
-                                                                <td>
-                                                                    Canada
-                                                                </td>
-                                                                <td>
-                                                                    06/30/2018
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    thykauper@rhyta.com
-                                                                </td>
-                                                                <td>
-                                                                    Denmark
-                                                                </td>
-                                                                <td>
-                                                                    09/08/2018
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    austin@dayrep.com
-                                                                </td>
-                                                                <td>
-                                                                    Germany
-                                                                </td>
-                                                                <td>
-                                                                    07/15/2018
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    collier@jourrapide.com
-                                                                </td>
-                                                                <td>
-                                                                    Canada
-                                                                </td>
-                                                                <td>
-                                                                    06/30/2018
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    thykauper@rhyta.com
-                                                                </td>
-                                                                <td>
-                                                                    Denmark
-                                                                </td>
-                                                                <td>
-                                                                    09/08/2018
-                                                                </td>
-                                                            </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
-
                                             </div>
-                                            <!--end card body-->
-
                                         </div>
-                                        <!--end card-->
-                                    </div> <!-- end col -->
+                                    </div>
 
                                     <div class="col-lg-4">
                                         <div class="card">
@@ -347,11 +273,16 @@
                                                 <h4 class="header-title mb-3">Graphique en aire</h4>
                                                 <div class="text-center">
                                                     <p class="text-muted font-size-15 mb-0">
-                                                        <span class="mx-2"><i class="mdi mdi-checkbox-blank-circle text-blue"></i> Hier</span>
-                                                        <span class="mx-2"><i class="mdi mdi-checkbox-blank-circle text-danger"></i> Aujourd'hui</span>
+                                                        <span class="mx-2"><i
+                                                                class="mdi mdi-checkbox-blank-circle text-blue"></i>
+                                                            Hier</span>
+                                                        <span class="mx-2"><i
+                                                                class="mdi mdi-checkbox-blank-circle text-danger"></i>
+                                                            Aujourd'hui</span>
                                                     </p>
                                                 </div>
-                                                <div id="morris-area-example" style="height: 350px;" class="morris-chart"></div>
+                                                <div id="morris-area-example" style="height: 350px;"
+                                                    class="morris-chart"></div>
                                             </div>
                                         </div> <!-- end card-->
                                     </div>
