@@ -40,7 +40,13 @@ class AgentController extends Controller
                 $query->where('agent_id', $user->id);
             })->get();
 
-            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services);
+            $servicesPayes = Service::whereHas('notification', function ($query) use ($user) {
+                $query->where('agent_id', $user->id);
+            })
+                ->where('payer', 1)
+                ->sum('prix');
+
+            return view('agent.home')->with('statusText', $statusText)->with('user', $user)->with('lastUpdated', $lastUpdated)->with('notifications', $notifications)->with('services', $services)->with('servicesPayes', $servicesPayes);
         } else {
             return redirect()->route('welcome')->with('error', 'Vous n\'êtes pas autorisé à accéder à cette page.');
         }

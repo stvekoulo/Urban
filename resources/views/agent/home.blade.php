@@ -100,7 +100,7 @@
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h3 class="d-flex align-items-center mb-0">
-                                                2000
+                                                {{ $servicesPayes }}
                                             </h3>
                                         </div>
                                         <div class="col-4 text-end">
@@ -126,7 +126,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">{{ now()->format('d/m/Y') }}</span>
+                                        <span
+                                            class="badge badge-soft-primary float-end">{{ now()->format('d/m/Y') }}</span>
                                         <h3 class="card-title mb-0">Nombre de service</h3>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
@@ -683,9 +684,17 @@
                                                                 <tr>
                                                                     <td>{{ $service->notification->id }}</td>
                                                                     <td>{{ $service->notification->user->name }}</td>
-                                                                    <td>{{ $service->notification->description }}</td>
+                                                                    <td>{{ $service->description }}</td>
                                                                     <td>{{ $service->notification->service_type }}</td>
-                                                                    <td> <span class="dot blink"></span> En cours</td>
+                                                                    <td>
+                                                                        @if ($service->payer == 1)
+                                                                            <span class="dot blink red"></span> Fin du
+                                                                            service
+                                                                        @else
+                                                                            <span class="dot blink green"></span> En
+                                                                            cours
+                                                                        @endif
+                                                                    </td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>
