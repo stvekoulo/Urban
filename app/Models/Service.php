@@ -10,7 +10,12 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['notification_id', 'description', 'prix'];
+    protected $fillable = ['notification_id', 'description', 'prix', 'transaction', 'payer'];
+
+    public function updateTransactionId($transactionId)
+    {
+        $this->update(['transaction' => $transactionId, 'payer' => true]);
+    }
 
     public function agent()
     {

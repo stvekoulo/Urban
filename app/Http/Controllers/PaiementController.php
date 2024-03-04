@@ -39,7 +39,8 @@ class PaiementController extends Controller
         $fedaPay::setEnvironment(self::FEDA_LIVE);
 
         $service = Service::where('id', $id)->with('expediteur')->first();
-        dd($service->prix);
+        // dd($service->prix);
+        // $service->prix;
 
         // die;
         $achat = $transaction::create([
@@ -59,8 +60,14 @@ class PaiementController extends Controller
             ],
         ]);
 
+
+        $id_transaction = $achat->id;
+        $service->updateTransactionId($id_transaction);
+
+
         $pay = $transaction::retrieve(96362358);
         $pay->sendNow('mtn');
+
         $id_transaction = $pay->id;
 
         // $token = $transaction->generateToken()->token;

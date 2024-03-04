@@ -372,7 +372,7 @@ Header Area
 
     <div class="space">
         @if(session()->has('messageTransaction'))
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center">
                 {{ session('messageTransaction') }}
             </div>
         @endif
@@ -409,12 +409,22 @@ Header Area
                                         {{ $service->paye }}
                                     </td> --}}
                                     <td class="product-action">
-                                        <a href="{{ route('payMyFeda', ['id' => $service->id]) }}"
+                                        {{-- <a href="{{ route('payMyFeda', ['id' => $service->id]) }}"
                                             class="button th-btn" name="pay-now" value="{{ $service->id }}"
                                             title="Payez maintenant">
                                             <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt">Payez
                                                 maintenant</span>
-                                        </a>
+                                        </a> --}}
+                                        @if ($service->payer)
+                                            <button class="btn btn-success" disabled>
+                                                <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt"> Payé </span>
+                                            </button>
+                                        @else
+                                            <a href="{{ route('payMyFeda', ['id' => $service->id]) }}" class="button th-btn" name="pay-now" value="{{ $service->id }}" title="Payez maintenant">
+                                                <i class="fal fa-money-bill-wave"></i><span class="tinvwl-txt">Payez maintenant</span>
+                                            </a>
+                                        @endif
+                                    </td>
                                     </td>
                                 </tr>
                             @endforeach
