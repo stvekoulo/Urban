@@ -126,13 +126,13 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-4">
-                                        <span class="badge badge-soft-primary float-end">Jour</span>
+                                        <span class="badge badge-soft-primary float-end">{{ now()->format('d/m/Y') }}</span>
                                         <h3 class="card-title mb-0">Nombre de service</h3>
                                     </div>
                                     <div class="row d-flex align-items-center mb-4">
                                         <div class="col-8">
                                             <h3 class="d-flex align-items-center mb-0">
-                                                5
+                                                {{ $services->count() }}
                                             </h3>
                                         </div>
                                         <div class="col-4 text-end">
@@ -685,7 +685,7 @@
                                                                     <td>{{ $service->notification->user->name }}</td>
                                                                     <td>{{ $service->notification->description }}</td>
                                                                     <td>{{ $service->notification->service_type }}</td>
-                                                                    <td>En cours</td>
+                                                                    <td> <span class="dot blink"></span> En cours</td>
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>

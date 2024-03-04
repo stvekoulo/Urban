@@ -46,6 +46,7 @@ Mobile Menu
                    <li>
                        <a href="{{ route('paiement') }}">Paiement</a>
                    </li>
+
                </ul>
                @if (Route::has('login'))
                    @auth
