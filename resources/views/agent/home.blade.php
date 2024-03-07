@@ -196,34 +196,44 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h4 class="card-title">Services effectués</h4>
-                                                <p class="card-subtitle mb-4 font-size-13">Intervalle de transaction du {{ $date_debut }} au {{ $date_fin }}</p>
+                                                <p class="card-subtitle mb-4 font-size-13">Intervalle de transaction du
+                                                    {{ $date_debut }} au {{ $date_fin }}</p>
                                                 <div class="table-responsive">
-                                                    <table class="table table-centered table-striped table-nowrap mb-0">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Type de service</th>
-                                                                <th>Prix</th>
-                                                                <th>État de service</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach ($serviceintervalle as $service)
-                                                            <tr>
-                                                                <td>{{ $service->notification->service_type }}</td>
-                                                                <td>{{ $service->prix }}</td>
-                                                                <td>
-                                                                    @if ($service->payer == 1)
-                                                                        <span class="dot blink red"></span> Fin du
-                                                                        service
-                                                                    @else
-                                                                        <span class="dot blink green"></span> En
-                                                                        cours
-                                                                    @endif
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
+                                                    <div class="table-responsive service-table">
+                                                        <table
+                                                            class="table table-centered table-striped table-nowrap mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Type de service</th>
+                                                                    <th>Prix</th>
+                                                                    <th>État de service</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($serviceintervalle as $service)
+                                                                    <tr>
+                                                                        <td>{{ $service->notification->service_type }}
+                                                                        </td>
+                                                                        <td>{{ $service->prix }}</td>
+                                                                        <td>
+                                                                            @if ($service->payer == 1)
+                                                                                <span class="dot blink red"></span> Fin
+                                                                                du service
+                                                                            @else
+                                                                                <span class="dot blink green"></span>
+                                                                                En cours
+                                                                            @endif
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="text-center mt-3">
+                                                            <button
+                                                                class="btn btn-primary previous-btn">Précédent</button>
+                                                            <button class="btn btn-primary next-btn">Suivant</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -582,7 +592,9 @@
                                     </p>
                                     <div class="">
                                         <div class="container">
-                                            <div class="table-responsive"> <!-- Ajoutez la classe table-responsive -->
+                                            <div class="table-responsive service-table-1">
+                                                <!-- Ajoutez la classe service-table-1 -->
+                                                <!-- Tableau des services en cours -->
                                                 @if ($services->isEmpty())
                                                     <p>Aucun service en cours</p>
                                                 @else
@@ -598,20 +610,14 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($services as $service)
+                                                            @foreach ($services->where('payer', 0) as $service)
                                                                 <tr>
                                                                     <td>{{ $service->notification->id }}</td>
                                                                     <td>{{ $service->notification->user->name }}</td>
                                                                     <td>{{ $service->description }}</td>
                                                                     <td>{{ $service->notification->service_type }}</td>
                                                                     <td>
-                                                                        @if ($service->payer == 1)
-                                                                            <span class="dot blink red"></span> Fin du
-                                                                            service
-                                                                        @else
-                                                                            <span class="dot blink green"></span> En
-                                                                            cours
-                                                                        @endif
+                                                                        <span class="dot blink green"></span> En cours
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -621,32 +627,35 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-                                <!--end card body-->
-
                             </div>
-                            <!--end card-->
                         </div>
 
-                        <!--end col-->
+
+                        <!--end card body-->
 
                     </div>
-                    <!--end row-->
+                    <!--end card-->
+                </div>
 
-                </div> <!-- container -->
+                <!--end col-->
 
-            </div> <!-- content -->
+            </div>
+            <!--end row-->
 
-            <!-- Footer Start -->
+        </div> <!-- container -->
 
-            <!-- end Footer -->
+    </div> <!-- content -->
 
-        </div>
+    <!-- Footer Start -->
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+    <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
     </div>
 
